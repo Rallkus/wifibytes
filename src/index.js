@@ -1,6 +1,5 @@
 import {get} from './utils';
-
-let hostBase='http://localhost:8000';
+import {Settings} from './settings';
 
 function myMap(mapOptions, myLatlng, datos_empresa) {
   let mapa = new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -36,7 +35,7 @@ function getContact() {
     '<div id="map" style="width:400px;height:400px">'+
   '</div>';
     document.getElementById("page").innerHTML = contactPage;
-    get(hostBase+'/datos_empresa').then(function(response) {
+    get(Settings.baseURL+'/datos_empresa').then(function(response) {
       let a = JSON.parse(response);
       console.log(a);
       let myLatlng = new google.maps.LatLng(a.location_lat, a.location_long);
@@ -53,7 +52,7 @@ function getContact() {
 }
 
 function getHome() {
-  get(hostBase+'/home').then(function(response) {
+  get(Settings.baseURL+'/home').then(function(response) {
     //console.log("Success!", response);
     let leftTitle="";
     let rightTitle="";
@@ -97,7 +96,7 @@ window.onclick = function(e) {
   }
   };
 
-get(hostBase+'/datos_empresa').then(function(response) {
+get(Settings.baseURL+'/datos_empresa').then(function(response) {
     let a = JSON.parse(response);
     document.getElementById("logo").innerHTML = '<img src="'+a.logo+'" alt="Sergio Huertas logo">';
   }).catch(function(error) {
