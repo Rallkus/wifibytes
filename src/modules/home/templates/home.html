@@ -1,0 +1,18 @@
+let template = function(datos_empresa){
+  let html=`
+
+  <div class="flex-containerBoxes">
+      <div>
+        <div id="titleLeftBox"><h1>${datos_empresa.caja_izquierda_titulo}</h1></div>
+          <div id="titleLeftText"><p>${datos_empresa.caja_izquierda_texto}</p></div>
+      </div>
+      <div>
+        <div id="titleRightBox"><h1>${datos_empresa.caja_derecha_titulo}</h1></div>
+        <div id="titleRightText"><p>${datos_empresa.caja_derecha_texto}</p></div>
+      </div>
+    </div>
+   `;
+  return html;
+}
+
+ export {template};

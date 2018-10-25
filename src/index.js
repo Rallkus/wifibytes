@@ -1,7 +1,7 @@
 import {get} from './utils';
 import {Settings} from './settings';
-import HomeController from './controllers/homeCtrl';
-import ContactController from './controllers/contactCtrl';
+import HomeController from './modules/home/controller/homeCtrl';
+import ContactController from './modules/contact/controller/contactCtrl';
 
 window.onclick = function(e) { 
   if(e.target.id==='home'){
@@ -12,8 +12,8 @@ window.onclick = function(e) {
   };
 
 get(Settings.baseURL+'/datos_empresa').then(function(response) {
-    let a = JSON.parse(response);
-    document.getElementById("logo").innerHTML = '<img src="'+a.logo+'" alt="Sergio Huertas logo">';
+    let datos_empresa = JSON.parse(response);
+    document.getElementById("logo").innerHTML = '<img src="'+datos_empresa.logo+'" alt="Sergio Huertas logo">';
   }).catch(function(error) {
     console.log("Failed!", error);
 })
