@@ -1,5 +1,5 @@
 import {Router} from './router.js'; //Knows what to do for every single URL 
-import {get} from './utils';
+import {get} from './utils/utils.js';
 import {Settings} from './settings';
 import HomeController from './modules/home/controller/homeCtrl';
 import ContactController from './modules/contact/controller/contactCtrl';
@@ -13,14 +13,6 @@ Router
     console.log('default');
     HomeController.render();
 });
-
-/*window.onclick = function(e) { 
-  if(e.target.id==='home'){
-    HomeController.render();
-  }else if(e.target.id === 'contact'){
-    ContactController.render();
-  }
-  };*/
 
 get(Settings.baseURL+'/datos_empresa').then(function(response) {
     let datos_empresa = JSON.parse(response);

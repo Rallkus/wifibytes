@@ -1,4 +1,4 @@
-import {get} from '../../../utils';
+import {get} from '../../../utils/utils';
 import {Settings} from '../../../settings';
 import {template} from '../templates/home.html';
 
