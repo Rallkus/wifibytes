@@ -19,5 +19,6 @@ const server = new WebpackDevServer(compiler, {
   stats: {
     colors: true,
   },
+  stats: "errors-only",
 });
 server.listen(8080, 'localhost', function() {});

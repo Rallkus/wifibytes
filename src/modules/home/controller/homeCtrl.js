@@ -1,6 +1,6 @@
 import {get} from '../../../utils/utils';
 import {Settings} from '../../../settings';
-import {template} from '../templates/home.html';
+import {template} from '../view/home.html';
 
 class HomeController {
 

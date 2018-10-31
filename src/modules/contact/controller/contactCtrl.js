@@ -1,6 +1,7 @@
 import {get} from '../../../utils/utils';
 import {Settings} from '../../../settings';
-import {template} from '../templates/contact.html';
+import {template} from '../view/contact.html';
+import {loadJavascriptForContactView} from '../view/contact';
 import {myMap} from '../utils/utils';
 
 class ContactController {
@@ -13,8 +14,8 @@ class ContactController {
     static render() {
 
     let mapOptions;
-    let contactPage=template();
-    document.getElementById("page").innerHTML = contactPage;
+    document.getElementById("page").innerHTML = template();
+    loadJavascriptForContactView();
     get(Settings.baseURL+'/datos_empresa').then(function(response) {
       let a = JSON.parse(response);
       console.log(a);
