@@ -3,6 +3,7 @@ import {get} from './utils/utils.js';
 import {Settings} from './settings';
 import HomeController from './modules/home/controller/homeCtrl';
 import ContactController from './modules/contact/controller/contactCtrl';
+import LogoController from './modules/logo/controller/logoCtrl';
 
 Router
 .add(/contact/, function() {
@@ -14,13 +15,8 @@ Router
     HomeController.render();
 });
 
-get(Settings.baseURL+'/datos_empresa').then(function(response) {
-    let datos_empresa = JSON.parse(response);
-    document.getElementById("logo").innerHTML = '<img src="'+datos_empresa.logo+'" alt="Sergio Huertas logo">';
-  }).catch(function(error) {
-    console.log("Failed!", error);
-})
 
+LogoController.render();
 HomeController.render();
 
 
