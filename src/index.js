@@ -1,9 +1,8 @@
 import {Router} from './router.js'; //Knows what to do for every single URL 
-import {get} from './utils/utils.js';
-import {Settings} from './settings';
 import HomeController from './modules/home/controller/homeCtrl';
 import ContactController from './modules/contact/controller/contactCtrl';
 import LogoController from './modules/logo/controller/logoCtrl';
+import HeaderController from './modules/header/controller/headerCtrl';
 
 Router
 .add(/contact/, function() {
@@ -14,8 +13,7 @@ Router
     console.log('default');
     HomeController.render();
 });
-
-
+HeaderController.render();
 LogoController.render();
 HomeController.render();
 
