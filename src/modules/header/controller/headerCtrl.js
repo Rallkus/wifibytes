@@ -8,9 +8,7 @@ class HeaderController {
   
     /** render  */
     static render() {
-        window.onload = function() {
-            document.getElementById("menuShow").innerHTML=template();
-        }        
+        document.getElementById("menuShow").innerHTML=template();               
     }
 }
 export default HeaderController;

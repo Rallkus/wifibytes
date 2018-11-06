@@ -6,9 +6,11 @@ function myMap(mapOptions, datos_empresa) {
       title: 'Here we are!'
     });
     marker.setMap(mapa);
-    let contentString = '<h1>'+datos_empresa.name+'</h1>'+
-    '<p> Dirección: '+datos_empresa.address+'</p>'+
-    '<p> Tlf de contacto: '+datos_empresa.phone+'</p>';
+    let contentString = `
+    <h1>${datos_empresa.name}</h1>
+    <p> Dirección: ${datos_empresa.address}</p>
+    <p> Tlf de contacto: ${datos_empresa.phone}</p>
+    `;
   
     let infowindow = new google.maps.InfoWindow({
       content: contentString

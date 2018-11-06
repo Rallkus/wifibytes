@@ -3,6 +3,7 @@ import HomeController from './modules/home/controller/homeCtrl';
 import ContactController from './modules/contact/controller/contactCtrl';
 import LogoController from './modules/logo/controller/logoCtrl';
 import HeaderController from './modules/header/controller/headerCtrl';
+import FooterController from './modules/footer/controller/footerCtrl';
 
 Router
 .add(/contact/, function() {
@@ -13,8 +14,11 @@ Router
     console.log('default');
     HomeController.render();
 });
+window.onload = function() {
 HeaderController.render();
 LogoController.render();
+FooterController.render();
 HomeController.render();
+}
 
 

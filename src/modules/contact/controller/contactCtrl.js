@@ -17,13 +17,12 @@ class ContactController {
     document.getElementById("page").innerHTML = template();
     loadJavascriptForContactView();
     get(Settings.baseURL+'/datos_empresa').then(function(response) {
-      let a = JSON.parse(response);
-      console.log(a);
+      let datos_empresa = JSON.parse(response);
       mapOptions = {
-        center: new google.maps.LatLng(a.location_lat, a.location_long),
+        center: new google.maps.LatLng(datos_empresa.location_lat, datos_empresa.location_long),
         zoom: 16,
     }
-    myMap(mapOptions, a);
+    myMap(mapOptions, datos_empresa);
     }).catch(function(error) {
       console.log("Failed!", error);
   })
