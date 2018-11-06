@@ -1,18 +1,22 @@
-let template = function(datos_empresa){
+let textTemplate = function(datos_empresa){
   let html=`
-  <section id="tarifas" class="tarifas"></section>
-  <div class="flex-containerBoxes">
-      <div>
-        <div id="titleLeftBox"><h1>${datos_empresa.caja_izquierda_titulo}</h1></div>
-          <div id="titleLeftText"><p>${datos_empresa.caja_izquierda_texto}</p></div>
-      </div>
-      <div>
-        <div id="titleRightBox"><h1>${datos_empresa.caja_derecha_titulo}</h1></div>
-        <div id="titleRightText"><p>${datos_empresa.caja_derecha_texto}</p></div>
-      </div>
+    <div>
+      <div id="titleLeftBox"><h1>${datos_empresa.caja_izquierda_titulo}</h1></div>
+        <div id="titleLeftText"><p>${datos_empresa.caja_izquierda_texto}</p></div>
+    </div>
+    <div>
+      <div id="titleRightBox"><h1>${datos_empresa.caja_derecha_titulo}</h1></div>
+      <div id="titleRightText"><p>${datos_empresa.caja_derecha_texto}</p></div>
     </div>
    `;
   return html;
 }
+let template = function(){
+  let html = `
+  <section id="tarifas" class="tarifas"></section>
+  <div class="flex-containerBoxes" id="homeText"></div>
+  `;
+  return html;
+}
 
- export {template};
+ export {template, textTemplate};

@@ -1,6 +1,6 @@
 import {get} from '../../../utils/utils';
 import {Settings} from '../../../settings';
-import {template} from '../view/home.html';
+import {template, textTemplate} from '../view/home.html';
 import {tarifa} from '../../../view/tarifa.html';
 
 class HomeController {
@@ -11,11 +11,11 @@ class HomeController {
   
     /** render  */
     static render() {
+      document.getElementById("page").innerHTML = template();
         get(Settings.baseURL+'/home').then(function(response) {
-            let home = JSON.parse(response);
-            document.getElementById("page").innerHTML ="";
+            let home = JSON.parse(response);     
             home.forEach(element => {
-              document.getElementById("page").innerHTML = template(element);
+              document.getElementById("homeText").innerHTML = textTemplate(element);
             });   
           }).catch(function(error) {
             console.log("Failed!", error);
