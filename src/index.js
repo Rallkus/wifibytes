@@ -1,6 +1,7 @@
 import {Router} from './router.js'; //Knows what to do for every single URL 
 import HomeController from './modules/home/controller/homeCtrl';
 import ContactController from './modules/contact/controller/contactCtrl';
+import legalWarningController from './modules/legalWarning/controller/legalWarningCtrl';
 import LogoController from './modules/logo/controller/logoCtrl';
 import HeaderController from './modules/header/controller/headerCtrl';
 import FooterController from './modules/footer/controller/footerCtrl';
@@ -9,7 +10,12 @@ Router
 .add(/contact/, function() {
   console.log("Contact");
   ContactController.render();
-}).listen()
+})
+.add(/avisolegal/, function() {
+  console.log('Aviso legal');
+  legalWarningController.render();
+})
+.listen()
 .add(function() {
     console.log('default');
     HomeController.render();
