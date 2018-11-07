@@ -1,6 +1,6 @@
 // From Jake Archibald's Promises and Back:
 // http://www.html5rocks.com/en/tutorials/es6/promises/#toc-promisifying-xmlhttprequest
-
+/**This is our get call to our server */
 function get(url) {
     // Return a new promise.
     return new Promise(function(resolve, reject) {

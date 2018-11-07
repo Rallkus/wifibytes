@@ -1,4 +1,4 @@
-
+/** Getting the element button from contact form */
 let loadJavascriptForContactView = function(){
     let el = document.getElementById('submit');
 
@@ -9,7 +9,7 @@ el.onclick = function() {
   form.email=document.getElementById('email').value;
   form.descripcion=document.getElementById('descripcion').value;
   form.telefono=document.getElementById('telefono').value;
-
+  /** All the validation for the form */
   if(form.nombre === ""){
     document.getElementById("nombre").innerHTML = "No has escrito ningún nombre";
     form.val=false;
@@ -34,6 +34,7 @@ el.onclick = function() {
   }else{
     document.getElementById("wrongEmail").innerHTML = "";
   }
+  /** End of validation */
   if(form.val){
     alert("Mensaje enviado");
     window.location = "http://localhost:8080/";

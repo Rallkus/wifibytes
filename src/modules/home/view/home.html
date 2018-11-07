@@ -1,3 +1,4 @@
+/** This is the template for all the text included inside the home view */
 let textTemplate = function(datos_empresa){
   let html=`
     <div>
@@ -11,6 +12,9 @@ let textTemplate = function(datos_empresa){
    `;
   return html;
 }
+/** This is the template where we are going to print after we get the info 
+* from the calls we made to the server
+*/
 let template = function(){
   let html = `
   <section id="tarifas" class="tarifas"></section>

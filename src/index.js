@@ -4,7 +4,7 @@ import ContactController from './modules/contact/controller/contactCtrl';
 import LogoController from './modules/logo/controller/logoCtrl';
 import HeaderController from './modules/header/controller/headerCtrl';
 import FooterController from './modules/footer/controller/footerCtrl';
-
+/**Here we add our routes to our router */
 Router
 .add(/contact/, function() {
   console.log("Contact");

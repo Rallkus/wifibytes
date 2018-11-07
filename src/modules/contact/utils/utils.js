@@ -1,3 +1,7 @@
+/** The function to print the map
+ * @param mapOptions are the options to the map defined in contactCtrl
+ * @param datos_empresa is the data get from the server
+ */
 function myMap(mapOptions, datos_empresa) {
     let mapa = new google.maps.Map(document.getElementById("map"), mapOptions);
     let marker = new google.maps.Marker({

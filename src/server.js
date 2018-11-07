@@ -8,6 +8,10 @@
 const WebpackDevServer = require('webpack-dev-server');
 const webpack = require('webpack');
 const config = require('../webpack.config.js');
+/**This is where we run our server
+ * stats: "errors-only" hides all the warnings and only shows the errors when 
+ * you run webpack
+ */
 const path = require('path');
 
 const compiler = webpack(config);
