@@ -13,11 +13,7 @@ class legalWarningController {
     document.getElementById("page").innerHTML = template();
     get(Settings.baseURL+'/datos_empresa').then(function(response) {
       let datos_empresa = JSON.parse(response);
-    
-      function getJumbotronLegal(datos){
-          console.log(datos);
-          return datos.key.test(regexp);
-      }
+
       let a=datos_empresa.textos.filter(datos => datos.key.match(/jumbotron_legal/));
       console.log(a);
       document.getElementById("datos_generales").innerHTML=a.filter(datos => datos.key.match(/datos_generales/))[0].content;
