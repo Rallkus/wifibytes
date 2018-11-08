@@ -1,4 +1,7 @@
-/**This is the template for any "tarifa" we create */
+/**This is the template for any "tarifa" we create, in case there is any "subtarifa" it shows
+ * the most relevant details
+ * @param datos_tarifa is the data sent by homeCtrl in order to paint the tarifa
+*/
 let tarifa = function(datos_tarifa){
   let html=`
     <div class="flex-tarifas">
