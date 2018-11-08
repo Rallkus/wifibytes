@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "d92d68c0f61e2bd3feb8";
+/******/ 	var hotCurrentHash = "4128ab97924f0411000c";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1099,19 +1099,222 @@ eval("var logLevel = \"info\";\n\nfunction dummy() {}\n\nfunction shouldLog(leve
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ \"./utils.js\");\n\n\nlet hostBase='http://127.0.0.1:8000';\n\n\nObject(_utils__WEBPACK_IMPORTED_MODULE_0__[\"get\"])(hostBase+'/datos_empresa').then(function(response) {\n    console.log(\"Success!\", response);\n    document.getElementById(\"result\").innerHTML = response;\n  }).catch(function(error) {\n    console.log(\"Failed!\", error);\n})\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _router_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./router.js */ \"./router.js\");\n/* harmony import */ var _modules_home_controller_homeCtrl__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/home/controller/homeCtrl */ \"./modules/home/controller/homeCtrl.js\");\n/* harmony import */ var _modules_contact_controller_contactCtrl__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/contact/controller/contactCtrl */ \"./modules/contact/controller/contactCtrl.js\");\n/* harmony import */ var _modules_legalWarning_controller_legalWarningCtrl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/legalWarning/controller/legalWarningCtrl */ \"./modules/legalWarning/controller/legalWarningCtrl.js\");\n/* harmony import */ var _modules_cookies_controller_cookiesCtrl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/cookies/controller/cookiesCtrl */ \"./modules/cookies/controller/cookiesCtrl.js\");\n/* harmony import */ var _modules_logo_controller_logoCtrl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/logo/controller/logoCtrl */ \"./modules/logo/controller/logoCtrl.js\");\n/* harmony import */ var _modules_header_controller_headerCtrl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/header/controller/headerCtrl */ \"./modules/header/controller/headerCtrl.js\");\n/* harmony import */ var _modules_footer_controller_footerCtrl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/footer/controller/footerCtrl */ \"./modules/footer/controller/footerCtrl.js\");\n //Knows what to do for every single URL \n\n\n\n\n\n\n\n/**Here we add our routes to our router */\n_router_js__WEBPACK_IMPORTED_MODULE_0__[\"Router\"]\n.add(/contact/, function() {\n  console.log(\"Contact\");\n  _modules_contact_controller_contactCtrl__WEBPACK_IMPORTED_MODULE_2__[\"default\"].render();\n})\n.add(/avisolegal/, function() {\n  console.log('Aviso legal');\n  _modules_legalWarning_controller_legalWarningCtrl__WEBPACK_IMPORTED_MODULE_3__[\"default\"].render();\n})\n.add(/cookies/, function() {\n  console.log('Cookies');\n  _modules_cookies_controller_cookiesCtrl__WEBPACK_IMPORTED_MODULE_4__[\"default\"].render();\n})\n.listen()\n.add(function() {\n    console.log('default');\n    _modules_home_controller_homeCtrl__WEBPACK_IMPORTED_MODULE_1__[\"default\"].render();\n});\nwindow.onload = function() {\n_modules_header_controller_headerCtrl__WEBPACK_IMPORTED_MODULE_6__[\"default\"].render();\n_modules_logo_controller_logoCtrl__WEBPACK_IMPORTED_MODULE_5__[\"default\"].render();\n_modules_footer_controller_footerCtrl__WEBPACK_IMPORTED_MODULE_7__[\"default\"].render();\n_modules_home_controller_homeCtrl__WEBPACK_IMPORTED_MODULE_1__[\"default\"].render();\n}\n\n\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
-/***/ "./utils.js":
-/*!******************!*\
-  !*** ./utils.js ***!
-  \******************/
-/*! exports provided: get */
+/***/ "./modules/contact/controller/contactCtrl.js":
+/*!***************************************************!*\
+  !*** ./modules/contact/controller/contactCtrl.js ***!
+  \***************************************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"get\", function() { return get; });\n// From Jake Archibald's Promises and Back:\n// http://www.html5rocks.com/en/tutorials/es6/promises/#toc-promisifying-xmlhttprequest\n\nfunction get(url) {\n    // Return a new promise.\n    return new Promise(function(resolve, reject) {\n      // Do the usual XHR stuff\n      var req = new XMLHttpRequest();\n      req.open('GET', url);\n  \n      req.onload = function() {\n        // This is called even on 404 etc\n        // so check the status\n        if (req.status == 200) {\n          // Resolve the promise with the response text\n          resolve(req.response);\n        }\n        else {\n          // Otherwise reject with the status text\n          // which will hopefully be a meaningful error\n          reject(Error(req.statusText));\n        }\n      };\n  \n      // Handle network errors\n      req.onerror = function() {\n        reject(Error(\"Network Error\"));\n      };\n  \n      // Make the request\n      req.send();\n    });\n  }\n  \n\n  \n\n//# sourceURL=webpack:///./utils.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../utils/utils */ \"./utils/utils.js\");\n/* harmony import */ var _settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../settings */ \"./settings.js\");\n/* harmony import */ var _view_contact_html__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../view/contact.html */ \"./modules/contact/view/contact.html\");\n/* harmony import */ var _view_contact__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../view/contact */ \"./modules/contact/view/contact.js\");\n/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/utils */ \"./modules/contact/utils/utils.js\");\n\n\n\n\n\n/**This is the contact controller */\nclass ContactController {\n\n    constructor() {\n        \n    }\n  \n    /** render  */\n    static render() {\n    \n    let mapOptions;\n    document.getElementById(\"page\").innerHTML = Object(_view_contact_html__WEBPACK_IMPORTED_MODULE_2__[\"template\"])();\n    /** Calling to contact.js */\n    Object(_view_contact__WEBPACK_IMPORTED_MODULE_3__[\"loadJavascriptForContactView\"])();\n    /** Gettint the data from server and setting the map options */\n    Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__[\"get\"])(_settings__WEBPACK_IMPORTED_MODULE_1__[\"Settings\"].baseURL+'/datos_empresa').then(function(response) {\n      let datos_empresa = JSON.parse(response);\n      mapOptions = {\n        center: new google.maps.LatLng(datos_empresa.location_lat, datos_empresa.location_long),\n        zoom: 16,\n    }\n    /** Calling to myMap inside utils to print the map */\n    Object(_utils_utils__WEBPACK_IMPORTED_MODULE_4__[\"myMap\"])(mapOptions, datos_empresa);\n    }).catch(function(error) {\n      console.log(\"Failed!\", error);\n  })\n    }\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (ContactController);\n\n//# sourceURL=webpack:///./modules/contact/controller/contactCtrl.js?");
+
+/***/ }),
+
+/***/ "./modules/contact/utils/utils.js":
+/*!****************************************!*\
+  !*** ./modules/contact/utils/utils.js ***!
+  \****************************************/
+/*! exports provided: myMap */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"myMap\", function() { return myMap; });\n/** The function to print the map\n * @param mapOptions are the options to the map defined in contactCtrl\n * @param datos_empresa is the data get from the server\n */\nfunction myMap(mapOptions, datos_empresa) {\n    let mapa = new google.maps.Map(document.getElementById(\"map\"), mapOptions);\n    let marker = new google.maps.Marker({\n      position: new google.maps.LatLng(datos_empresa.location_lat, datos_empresa.location_long),\n      map: mapa,\n      title: 'Here we are!'\n    });\n    marker.setMap(mapa);\n    let contentString = `\n    <h1>${datos_empresa.name}</h1>\n    <p> Dirección: ${datos_empresa.address}</p>\n    <p> Tlf de contacto: ${datos_empresa.phone}</p>\n    `;\n  \n    let infowindow = new google.maps.InfoWindow({\n      content: contentString\n    });\n    marker.addListener('click', function() {\n      infowindow.open(mapa, marker);\n    });\n    }\n  \n\n  \n\n//# sourceURL=webpack:///./modules/contact/utils/utils.js?");
+
+/***/ }),
+
+/***/ "./modules/contact/view/contact.html":
+/*!*******************************************!*\
+  !*** ./modules/contact/view/contact.html ***!
+  \*******************************************/
+/*! exports provided: template */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"template\", function() { return template; });\n/** The template for the contact page*/\nlet template = function(){\n    let html=`\n  \n    <div class=\"flex-containerBoxes\">\n      <div>\n        <form name=\"contact_form\">\n        <input type=\"text\" id=\"name\" placeholder=\"Nombre y apellidos\"><br>\n        <p id=\"nombre\" style=\"color:#FF0000\";></p>\n        <input type=\"number\" id=\"telefono\" placeholder=\"Número de teléfono\"><br>\n        <p id=\"phone\" style=\"color:#FF0000\";></p>\n        <input type=\"email\" id=\"email\" placeholder=\"Email\"><br>\n        <p id=\"wrongEmail\" style=\"color:#FF0000\";></p>\n        <input type=\"textarea\" id=\"descripcion\" cols=\"10\" rows=\"10\"><br>\n        <p id=\"textarea\" style=\"color:#FF0000\";></p>\n        <input type=\"button\" id=\"submit\" value=\"Enviar\">\n        </form>\n      </div>\n      <div id=\"map\" style=\"width:400px;height:400px\">\n    </div>\n     `;\n    return html;\n  }\n  \n   \n\n//# sourceURL=webpack:///./modules/contact/view/contact.html?");
+
+/***/ }),
+
+/***/ "./modules/contact/view/contact.js":
+/*!*****************************************!*\
+  !*** ./modules/contact/view/contact.js ***!
+  \*****************************************/
+/*! exports provided: loadJavascriptForContactView */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"loadJavascriptForContactView\", function() { return loadJavascriptForContactView; });\n/** Getting the element button from contact form */\nlet loadJavascriptForContactView = function(){\n    let el = document.getElementById('submit');\n\nel.onclick = function() {\n  let form={};\n  form.val=true;\n  form.nombre=document.getElementById('name').value;\n  form.email=document.getElementById('email').value;\n  form.descripcion=document.getElementById('descripcion').value;\n  form.telefono=document.getElementById('telefono').value;\n  /** All the validation for the form */\n  if(form.nombre === \"\"){\n    document.getElementById(\"nombre\").innerHTML = \"No has escrito ningún nombre\";\n    form.val=false;\n  }else{\n    document.getElementById(\"nombre\").innerHTML = \"\";\n  }\n  if(!form.telefono.match(/^\\d{9}$/)){\n    document.getElementById(\"phone\").innerHTML = \"No has escrito un teléfono válido\";\n    form.val=false;\n  }else{\n    document.getElementById(\"phone\").innerHTML = \"\";\n  }\n  if(form.descripcion === \"\"){\n    document.getElementById(\"textarea\").innerHTML = \"No has escrito ninguna descripción\";\n    form.val=false;\n  }else{\n    document.getElementById(\"textarea\").innerHTML = \"\";\n  }\n  if(!form.email.match(/^(([^<>()[\\]\\\\.,;:\\s@\\\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\\\"]+)*)|(\\\".+\\\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$/)){\n    document.getElementById(\"wrongEmail\").innerHTML = \"No has escrito ningún nombre\";\n    form.val=false;\n  }else{\n    document.getElementById(\"wrongEmail\").innerHTML = \"\";\n  }\n  /** End of validation */\n  if(form.val){\n    alert(\"Mensaje enviado\");\n    window.location = \"http://localhost:8080/\";\n  }    \n  console.log(form);\n};\n  }\n  \n   \n\n//# sourceURL=webpack:///./modules/contact/view/contact.js?");
+
+/***/ }),
+
+/***/ "./modules/cookies/controller/cookiesCtrl.js":
+/*!***************************************************!*\
+  !*** ./modules/cookies/controller/cookiesCtrl.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../utils/utils */ \"./utils/utils.js\");\n/* harmony import */ var _settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../settings */ \"./settings.js\");\n\n\n\n/**This is the cookies controller */\nclass CookiesController {\n\n    constructor() {\n        \n    }\n  \n    /** render  */\n    static render() {\n    Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__[\"get\"])(_settings__WEBPACK_IMPORTED_MODULE_1__[\"Settings\"].baseURL+'/datos_empresa').then(function(response) {\n      let datos_empresa = JSON.parse(response);\n\n      let a=datos_empresa.textos.filter(datos => datos.key.match(/jumbotron_cookies/));\n      console.log(a);\n      document.getElementById(\"page\").innerHTML=a[0].content;\n    }).catch(function(error) {\n      console.log(\"Failed!\", error);\n  })\n    }\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (CookiesController);\n\n//# sourceURL=webpack:///./modules/cookies/controller/cookiesCtrl.js?");
+
+/***/ }),
+
+/***/ "./modules/footer/controller/footerCtrl.js":
+/*!*************************************************!*\
+  !*** ./modules/footer/controller/footerCtrl.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../utils/utils */ \"./utils/utils.js\");\n/* harmony import */ var _settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../settings */ \"./settings.js\");\n/* harmony import */ var _view_footer_html__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../view/footer.html */ \"./modules/footer/view/footer.html\");\n\n\n\n/** This is the footer class */\nclass FooterController {\n\n    constructor() {\n        \n    }\n  \n    /** render  */\n    static render() {\n    /** This is the call to the server to get the social information */\n    Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__[\"get\"])(_settings__WEBPACK_IMPORTED_MODULE_1__[\"Settings\"].baseURL+'/datos_empresa').then(function(response) {\n        let datos_empresa = JSON.parse(response);\n        document.getElementById(\"footer\").innerHTML = Object(_view_footer_html__WEBPACK_IMPORTED_MODULE_2__[\"template\"])(datos_empresa);\n    }).catch(function(error) {\n      console.log(\"Failed!\", error);\n  })\n    }\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (FooterController);\n\n//# sourceURL=webpack:///./modules/footer/controller/footerCtrl.js?");
+
+/***/ }),
+
+/***/ "./modules/footer/view/footer.html":
+/*!*****************************************!*\
+  !*** ./modules/footer/view/footer.html ***!
+  \*****************************************/
+/*! exports provided: template */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"template\", function() { return template; });\n/** This is the template for the footer*/\nlet template = function(datos_empresa){\n    let html=`\n    <a href=\"${datos_empresa.facebook}\" class=\"fa fa-facebook\"></a>\n    <a href=\"${datos_empresa.twitter}\" class=\"fa fa-twitter\"></a>\n    <a href=\"#avisolegal\">Aviso legal</a>\n    <a href=\"#cookies\">Política de cooies</a>\n     `;\n    return html;\n  }\n  \n   \n\n//# sourceURL=webpack:///./modules/footer/view/footer.html?");
+
+/***/ }),
+
+/***/ "./modules/header/controller/headerCtrl.js":
+/*!*************************************************!*\
+  !*** ./modules/header/controller/headerCtrl.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _view_header_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../view/header.html */ \"./modules/header/view/header.html\");\n\n/** This is our header class */\nclass HeaderController {\n\n    constructor() {\n        \n    }\n  \n    /** render  */\n    static render() {\n        document.getElementById(\"menuShow\").innerHTML=Object(_view_header_html__WEBPACK_IMPORTED_MODULE_0__[\"template\"])();               \n    }\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (HeaderController);\n\n//# sourceURL=webpack:///./modules/header/controller/headerCtrl.js?");
+
+/***/ }),
+
+/***/ "./modules/header/view/header.html":
+/*!*****************************************!*\
+  !*** ./modules/header/view/header.html ***!
+  \*****************************************/
+/*! exports provided: template */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"template\", function() { return template; });\n/** This is the header's template*/\nlet template = function(){\n    let html=`\n    <div class=\"meter\">\n        <nav role=\"navigation\">\n          <div id=\"menuToggle\">\n            <input type=\"checkbox\" />\n            <span></span>\n            <span></span>\n            <span></span>\n            <ul id=\"menu\">\n              <a href=\"#\"><li>Home</li></a>\n              <a href=\"#contact\"><li>Contact</li></a>\n            </ul>\n          </div>\n        </nav>\n      </div>\n     `;\n    return html;\n  }\n  \n   \n\n//# sourceURL=webpack:///./modules/header/view/header.html?");
+
+/***/ }),
+
+/***/ "./modules/home/controller/homeCtrl.js":
+/*!*********************************************!*\
+  !*** ./modules/home/controller/homeCtrl.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../utils/utils */ \"./utils/utils.js\");\n/* harmony import */ var _settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../settings */ \"./settings.js\");\n/* harmony import */ var _view_home_html__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../view/home.html */ \"./modules/home/view/home.html\");\n/* harmony import */ var _view_tarifa_html__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../view/tarifa.html */ \"./view/tarifa.html\");\n/* harmony import */ var _view_home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../view/home */ \"./modules/home/view/home.js\");\n/* harmony import */ var _view_home__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_view_home__WEBPACK_IMPORTED_MODULE_4__);\n\n\n\n\n\n/** This is our home class */\nclass HomeController {\n\n    constructor() {\n        \n    }\n  \n    /** render  */\n    static render() {\n      /** Here we apply the template so after the gets they have where to print */\n      Object(_view_home__WEBPACK_IMPORTED_MODULE_4__[\"loadJavascriptForHomeView\"])();\n      document.getElementById(\"page\").innerHTML = Object(_view_home_html__WEBPACK_IMPORTED_MODULE_2__[\"template\"])();\n      \n      document.getElementById(\"slider\").innerHTML=Object(_view_home_html__WEBPACK_IMPORTED_MODULE_2__[\"carouselTemplate\"])();\n      /**This is the call to get the home texts from the server */\n        Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__[\"get\"])(_settings__WEBPACK_IMPORTED_MODULE_1__[\"Settings\"].baseURL+'/home').then(function(response) {\n            let home = JSON.parse(response);     \n            home.forEach(element => {\n              document.getElementById(\"homeText\").innerHTML = Object(_view_home_html__WEBPACK_IMPORTED_MODULE_2__[\"textTemplate\"])(element);\n            });   \n          }).catch(function(error) {\n            console.log(\"Failed!\", error);\n          })\n        /** This is the call to get the tarifas from the server */\n          Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__[\"get\"])(_settings__WEBPACK_IMPORTED_MODULE_1__[\"Settings\"].baseURL+'/tarifa').then(function(response) {\n            let a = JSON.parse(response);\n            let tarifas = \"\";\n            a.results.forEach(element => {\n              console.log(element);\n              tarifas += Object(_view_tarifa_html__WEBPACK_IMPORTED_MODULE_3__[\"tarifa\"])(element);\n            });\n            let result = `\n            <div class=\"flex-container-tarifas\"> \n              ${tarifas} \n            </div>\n            `;\n            document.getElementById(\"tarifas\").innerHTML = result;\n          }).catch(function(error) {\n            console.log(\"Failed!\", error);\n          })\n       \n    }\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (HomeController);\n\n//# sourceURL=webpack:///./modules/home/controller/homeCtrl.js?");
+
+/***/ }),
+
+/***/ "./modules/home/view/home.html":
+/*!*************************************!*\
+  !*** ./modules/home/view/home.html ***!
+  \*************************************/
+/*! exports provided: template, textTemplate, carouselTemplate */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"template\", function() { return template; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"textTemplate\", function() { return textTemplate; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"carouselTemplate\", function() { return carouselTemplate; });\n/** This is the template for all the text included inside the home view */\nlet textTemplate = function(datos_empresa){\n  let html=`\n    <div>\n      <div id=\"titleLeftBox\"><h1>${datos_empresa.caja_izquierda_titulo}</h1></div>\n        <div id=\"titleLeftText\"><p>${datos_empresa.caja_izquierda_texto}</p></div>\n    </div>\n    <div>\n      <div id=\"titleRightBox\"><h1>${datos_empresa.caja_derecha_titulo}</h1></div>\n      <div id=\"titleRightText\"><p>${datos_empresa.caja_derecha_texto}</p></div>\n    </div>\n   `;\n  return html;\n}\n/** This is the template where we are going to print after we get the info \n* from the calls we made to the server\n*/\nlet template = function(){\n  let html = `\n  <section id=\"tarifas\" class=\"tarifas\"></section>\n  <div id=\"slider\"></div>\n  <div class=\"flex-containerBoxes\" id=\"homeText\"></div>\n  `;\n  return html;\n}\n\nlet carouselTemplate = function(){\n  let html=`\n      <!-- Slideshow container -->\n    <div class=\"slideshow-container\">\n\n      <!-- Full-width images with number and caption text -->\n      <div class=\"mySlides fade\">\n        <div class=\"numbertext\">1 / 3</div>\n        <img src=\"img1.jpg\" style=\"width:100%\">\n        <div class=\"text\">Caption Text</div>\n      </div>\n\n      <div class=\"mySlides fade\">\n        <div class=\"numbertext\">2 / 3</div>\n        <img src=\"img2.jpg\" style=\"width:100%\">\n        <div class=\"text\">Caption Two</div>\n      </div>\n\n      <div class=\"mySlides fade\">\n        <div class=\"numbertext\">3 / 3</div>\n        <img src=\"img3.jpg\" style=\"width:100%\">\n        <div class=\"text\">Caption Three</div>\n      </div>\n\n      <!-- Next and previous buttons -->\n      <a class=\"prev\" onclick=\"plusSlides(-1)\">&#10094;</a>\n      <a class=\"next\" onclick=\"plusSlides(1)\">&#10095;</a>\n    </div>\n    <br>\n\n    <!-- The dots/circles -->\n    <div style=\"text-align:center\">\n      <span class=\"dot\" onclick=\"currentSlide(1)\"></span> \n      <span class=\"dot\" onclick=\"currentSlide(2)\"></span> \n      <span class=\"dot\" onclick=\"currentSlide(3)\"></span> \n    </div>\n    `;\nreturn html;\n}\n\n \n\n//# sourceURL=webpack:///./modules/home/view/home.html?");
+
+/***/ }),
+
+/***/ "./modules/home/view/home.js":
+/*!***********************************!*\
+  !*** ./modules/home/view/home.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("let loadJavascriptForHomeView = function(){\n    var slideIndex = 1;\n    showSlides(slideIndex);\n\n    // Next/previous controls\n    function plusSlides(n) {\n    showSlides(slideIndex += n);\n    }\n\n    // Thumbnail image controls\n    function currentSlide(n) {\n    showSlides(slideIndex = n);\n    }\n\n    function showSlides(n) {\n    var i;\n    var slides = document.getElementsByClassName(\"mySlides\");\n    var dots = document.getElementsByClassName(\"dot\");\n    if (n > slides.length) {slideIndex = 1} \n    if (n < 1) {slideIndex = slides.length}\n    for (i = 0; i < slides.length; i++) {\n        slides[i].style.display = \"none\"; \n    }\n    for (i = 0; i < dots.length; i++) {\n        dots[i].className = dots[i].className.replace(\" active\", \"\");\n    }\n    slides[slideIndex-1].style.display = \"block\"; \n    dots[slideIndex-1].className += \" active\";\n    }\n}\n\n//# sourceURL=webpack:///./modules/home/view/home.js?");
+
+/***/ }),
+
+/***/ "./modules/legalWarning/controller/legalWarningCtrl.js":
+/*!*************************************************************!*\
+  !*** ./modules/legalWarning/controller/legalWarningCtrl.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../utils/utils */ \"./utils/utils.js\");\n/* harmony import */ var _settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../settings */ \"./settings.js\");\n\n\n/**This is the legal warning controller */\nclass legalWarningController {\n\n    constructor() {\n        \n    }\n  \n    /** render  */\n    static render() {\n    Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__[\"get\"])(_settings__WEBPACK_IMPORTED_MODULE_1__[\"Settings\"].baseURL+'/datos_empresa').then(function(response) {\n      let datos_empresa = JSON.parse(response);\n\n      let a=datos_empresa.textos.filter(datos => datos.key.match(/jumbotron_legal/));\n      console.log(a);\n      document.getElementById(\"page\").innerHTML=a[0].content;\n      //document.getElementById(\"ley_aplicable\").innerHTML=a.filter(datos => datos.key.match(/ley_aplicable/))[0].content;\n      //console.log(datos_empresa.textos);\n    }).catch(function(error) {\n      console.log(\"Failed!\", error);\n  })\n    }\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (legalWarningController);\n\n//# sourceURL=webpack:///./modules/legalWarning/controller/legalWarningCtrl.js?");
+
+/***/ }),
+
+/***/ "./modules/logo/controller/logoCtrl.js":
+/*!*********************************************!*\
+  !*** ./modules/logo/controller/logoCtrl.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../utils/utils */ \"./utils/utils.js\");\n/* harmony import */ var _settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../settings */ \"./settings.js\");\n\n\n/**This is our logo class where the logo is get from the server and showed in the html */\nclass LogoController {\n\n    constructor() {\n        \n    }\n  \n    /** render  */\n    static render() {\n        Object(_utils_utils__WEBPACK_IMPORTED_MODULE_0__[\"get\"])(_settings__WEBPACK_IMPORTED_MODULE_1__[\"Settings\"].baseURL+'/datos_empresa').then(function(response) {\n            let datos_empresa = JSON.parse(response);\n            /**After we get the logo here is how we put it in html */\n            document.getElementById(\"logo\").innerHTML =`\n             <img src=\"${datos_empresa.logo}\" alt=\"Sergio Huertas logo\" width=\"75px\" height=\"65px\">\n             `;\n          }).catch(function(error) {\n            console.log(\"Failed!\", error);\n        })\n       \n    }\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (LogoController);\n\n//# sourceURL=webpack:///./modules/logo/controller/logoCtrl.js?");
+
+/***/ }),
+
+/***/ "./router.js":
+/*!*******************!*\
+  !*** ./router.js ***!
+  \*******************/
+/*! exports provided: Router */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Router\", function() { return Router; });\n/*\nBased on \nhttp://krasimirtsonev.com/blog/article/A-modern-JavaScript-router-in-100-lines-history-api-pushState-hash-url\nSingleton Router\n*/\n\nvar Router = {\n    routes: [],\n    mode: null,\n    root: '/',\n    config: function(options) {\n        this.mode = options && options.mode && options.mode == 'history' \n                    && !!(history.pushState) ? 'history' : 'hash';\n        this.root = options && options.root ? '/' + this.clearSlashes(options.root) + '/' : '/';\n        return this;\n    },\n    // it will tell us where we are at the moment.\n    getFragment: function() {\n        var fragment = '';\n        if(this.mode === 'history') {\n            fragment = this.clearSlashes(decodeURI(location.pathname + location.search));\n            fragment = fragment.replace(/\\?(.*)$/, '');\n            fragment = this.root != '/' ? fragment.replace(this.root, '') : fragment;\n        } else {\n            var match = window.location.href.match(/#(.*)$/);\n            fragment = match ? match[1] : '';\n        }\n        return this.clearSlashes(fragment);\n    },\n    //It's job is to remove the slashes from the beginning and from the end of the string.\n    clearSlashes: function(path) {\n        return path.toString().replace(/\\/$/, '').replace(/^\\//, '');\n    },\n    //New Route\n    add: function(re, handler) {\n        if(typeof re == 'function') {\n            handler = re;\n            re = '';\n        }\n        this.routes.push({ re: re, handler: handler});\n        return this;\n    },\n    //Delete a route\n    remove: function(param) {\n        for(var i=0, r; i<this.routes.length, r = this.routes[i]; i++) {\n            if(r.handler === param || r.re.toString() === param.toString()) {\n                this.routes.splice(i, 1); \n                return this;\n            }\n        }\n        return this;\n    },\n    //Remove all added routes\n    flush: function() {\n        this.routes = [];\n        this.mode = null;\n        this.root = '/';\n        return this;\n    },\n    //To check if a string route match with any existing route rule usually expresses in a regex form\n    check: function(f) {\n        var fragment = f || this.getFragment();\n        for(var i=0; i<this.routes.length; i++) {\n            var match = fragment.match(this.routes[i].re);\n            if(match) {\n                match.shift();\n                this.routes[i].handler.apply({}, match);\n                return this;\n            }           \n        }\n        return this;\n    },\n    //Polling to get aquainted of any route change\n    listen: function() {\n        var self = this;\n        var current = self.getFragment();\n        var fn = function() {\n            //console.log(current)+\" \"+self.getFragment();        \n            if(current !== self.getFragment()) {\n                current = self.getFragment();\n                self.check(current);\n                console.log(\"LIIIIIIISTEN\");      \n            }\n        }\n        clearInterval(this.interval);\n        this.interval = setInterval(fn, 50);\n        return this;\n    },\n\n    //Go to pointed path route\n    navigate: function(path) {\n        path = path ? path : '';\n        if(this.mode === 'history') {\n            history.pushState(null, null, this.root + this.clearSlashes(path));\n            console.log(\"navigate->\"+path);\n        } else {\n            window.location.href = window.location.href.replace(/#(.*)$/, '') + '#' + path;\n        }\n        return this;\n    }\n}\n\n// configuration\n//Router.config({ mode: 'history'});\nRouter.config({ mode: ''});\n\n// returning the user to the initial state\nRouter.navigate();\n\n// adding routes\n/*Router\n.add(/about/, function() {\n    console.log('about');\n})\n.add(/products\\/(.*)\\/edit\\/(.*)/, function() {\n    console.log('products', arguments);\n})\n.add(function() {\n    console.log('default');\n})\n.check('/products/12/edit/22').listen();\n\n// forwarding\nRouter.navigate('/about');*/\n\n\n//# sourceURL=webpack:///./router.js?");
+
+/***/ }),
+
+/***/ "./settings.js":
+/*!*********************!*\
+  !*** ./settings.js ***!
+  \*********************/
+/*! exports provided: Settings */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Settings\", function() { return Settings; });\n/**This is the url to our server */\nlet Settings = {\n    baseURL:'http://localhost:8000'\n}\n\n\n\n//# sourceURL=webpack:///./settings.js?");
+
+/***/ }),
+
+/***/ "./utils/utils.js":
+/*!************************!*\
+  !*** ./utils/utils.js ***!
+  \************************/
+/*! exports provided: get, post */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"get\", function() { return get; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"post\", function() { return post; });\n// From Jake Archibald's Promises and Back:\n// http://www.html5rocks.com/en/tutorials/es6/promises/#toc-promisifying-xmlhttprequest\n/**This is our get call to our server */\nfunction get(url) {\n    // Return a new promise.\n    return new Promise(function(resolve, reject) {\n      // Do the usual XHR stuff\n      var req = new XMLHttpRequest();\n      req.open('GET', url);\n  \n      req.onload = function() {\n        // This is called even on 404 etc\n        // so check the status\n        if (req.status == 200) {\n          // Resolve the promise with the response text\n          resolve(req.response);\n        }\n        else {\n          // Otherwise reject with the status text\n          // which will hopefully be a meaningful error\n          reject(Error(req.statusText));\n        }\n      };\n  \n      // Handle network errors\n      req.onerror = function() {\n        reject(Error(\"Network Error\"));\n      };\n  \n      // Make the request\n      req.send();\n    });\n  }\n\n  function post(url, parameter) {\n    // Return a new promise.\n    return new Promise(function(resolve, reject) {\n      // Do the usual XHR stuff\n      var req = new XMLHttpRequest();\n      req.open('POST', url, parameter);\n  \n      req.onload = function() {\n        // This is called even on 404 etc\n        // so check the status\n        if (req.status == 200) {\n          // Resolve the promise with the response text\n          resolve(req.response);\n        }\n        else {\n          // Otherwise reject with the status text\n          // which will hopefully be a meaningful error\n          reject(Error(req.statusText));\n        }\n      };\n  \n      // Handle network errors\n      req.onerror = function() {\n        reject(Error(\"Network Error\"));\n      };\n  \n      // Make the request\n      req.send();\n    });\n  }\n  \n\n  \n  \n\n//# sourceURL=webpack:///./utils/utils.js?");
+
+/***/ }),
+
+/***/ "./view/tarifa.html":
+/*!**************************!*\
+  !*** ./view/tarifa.html ***!
+  \**************************/
+/*! exports provided: tarifa */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"tarifa\", function() { return tarifa; });\n/**This is the template for any \"tarifa\" we create */\nlet tarifa = function(datos_tarifa){\n    let html=`\n    <div class=\"flex-tarifas\">\n      <p><img src=\"${datos_tarifa.logo}\">${datos_tarifa.nombretarifa}</p>\n      <p>${datos_tarifa.pretitulo}</p>\n    </div>\n     `;\n    return html;\n  }\n  \n   \n\n//# sourceURL=webpack:///./view/tarifa.html?");
 
 /***/ }),
 
