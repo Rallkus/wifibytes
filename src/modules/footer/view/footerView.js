@@ -1,4 +1,6 @@
-/** This is the template for the footer*/
+/** This is the template for the footer
+ * @param datos_empresa is the information we got from footerCtrl
+*/
 let template = function(datos_empresa){
     let html=`
     <a href="${datos_empresa.facebook}" class="fa fa-facebook"></a>

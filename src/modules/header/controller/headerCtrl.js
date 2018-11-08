@@ -8,6 +8,7 @@ class HeaderController {
   
     /** render  */
     static render() {
+        /**We call our template and paint it */
         document.getElementById("menuShow").innerHTML=template();               
     }
 }

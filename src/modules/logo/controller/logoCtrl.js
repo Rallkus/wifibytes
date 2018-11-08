@@ -13,7 +13,9 @@ class LogoController {
         /** This is our call to server in order to get the logo and paint it in html */
         get(Settings.baseURL+'/datos_empresa').then(function(response) {
             let datos_empresa = JSON.parse(response);
-            /**After we get the logo here is how we put it in html */
+            /**After we get the logo here we pass the logo to the logo
+             * template and it prints it
+             */
             document.getElementById("logo").innerHTML =template(datos_empresa.logo);
           }).catch(function(error) {
             console.log("Failed!", error);

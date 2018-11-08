@@ -1,5 +1,6 @@
 /** Getting the element button from contact form */
 let loadJavascriptForContactView = function(){
+  /** Declaring the button so later it's easir to call onclick */
     let el = document.getElementById('submit');
 
 el.onclick = function() {
@@ -9,7 +10,7 @@ el.onclick = function() {
   form.email=document.getElementById('email').value;
   form.descripcion=document.getElementById('descripcion').value;
   form.telefono=document.getElementById('telefono').value;
-  /** All the validation for the form */
+  /** Start of all the validation for the form */
   if(form.nombre === ""){
     document.getElementById("nombre").innerHTML = "No has escrito ningún nombre";
     form.val=false;
@@ -35,11 +36,13 @@ el.onclick = function() {
     document.getElementById("wrongEmail").innerHTML = "";
   }
   /** End of validation */
-  if(form.val){
+  /** if @param form.val is true it means nothing went wrong, if something did go wrong
+   * the form shows messages on form to alert user which is the problem
+   */
+  if(form.val){ 
     alert("Mensaje enviado");
     window.location = "http://localhost:8080/";
   }    
-  console.log(form);
 };
   }
   

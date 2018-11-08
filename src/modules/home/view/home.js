@@ -1,10 +1,11 @@
 let loadJavascriptForHomeView = function(){
+    /** declarations of variables */
     let slideIndex = 1;
     let prev=document.getElementsByClassName("prev");
     let next=document.getElementsByClassName("next");
     let dot=document.getElementsByClassName("dot");
     
-    console.log(next);
+    /** All the carousel stuff */
     showSlides(slideIndex);
 
     // Next/previous controls
@@ -49,6 +50,9 @@ let loadJavascriptForHomeView = function(){
         }
     
     }
+    /** In order to get the event onclick from a dynamic button I needed to do this
+     * way because conventional ways didn't work
+     */
     document.addEventListener('click',function(e){
         if(e.target && e.target.className== 'next'){
             next.onclick();
@@ -69,7 +73,7 @@ let loadJavascriptForHomeView = function(){
         slideIndex++;
         if (slideIndex > x.length) {slideIndex = 1} 
         x[slideIndex-1].style.display = "block"; 
-        setTimeout(carousel, 4000); // Change image every 2 seconds
+        setTimeout(carousel, 4000); // Change image every 4 seconds
     }
     carousel();
 }

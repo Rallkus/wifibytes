@@ -3,13 +3,16 @@
  * @param datos_empresa is the data get from the server
  */
 function myMap(mapOptions, datos_empresa) {
+  /** @param mapa is the map in html */
     let mapa = new google.maps.Map(document.getElementById("map"), mapOptions);
+    /** Adding a marker */
     let marker = new google.maps.Marker({
       position: new google.maps.LatLng(datos_empresa.location_lat, datos_empresa.location_long),
       map: mapa,
       title: 'Here we are!'
     });
     marker.setMap(mapa);
+    /** html for the info window */
     let contentString = `
     <h1>${datos_empresa.name}</h1>
     <p> Dirección: ${datos_empresa.address}</p>
