@@ -1,6 +1,6 @@
 const legalWarning=require('../src/modules/legalWarning/controller/legalWarningCtrl');
 const $ = require('jquery');
-beforeEach(()=> {;
+beforeEach(()=> {
     // Set up our document body
   document.body.innerHTML =`<!DOCTYPE html>
   <html lang="es">

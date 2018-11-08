@@ -1,5 +1,4 @@
 import {get} from '../../../utils/utils';
-import {Settings} from '../../../settings';
 /**This is the legal warning controller */
 class legalWarningController {
 
@@ -10,7 +9,7 @@ class legalWarningController {
     /** render  */
     static render() {
       /** We get the data of our company in this call */
-    get(Settings.baseURL+'/datos_empresa').then(function(response) {
+    get('/datos_empresa').then(function(response) {
       let datos_empresa = JSON.parse(response);
       /** We want to filter all the texts in order to find the one we need to print
        * Also, there is no template here because all the text has his own html

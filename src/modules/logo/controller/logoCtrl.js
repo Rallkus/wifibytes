@@ -1,5 +1,4 @@
 import {get} from '../../../utils/utils';
-import {Settings} from '../../../settings';
 import {template} from '../view/logoView';
 /**This is our logo class where the logo is get from the server and showed in the html */
 class LogoController {
@@ -11,7 +10,7 @@ class LogoController {
     /** render  */
     static render() {
         /** This is our call to server in order to get the logo and paint it in html */
-        get(Settings.baseURL+'/datos_empresa').then(function(response) {
+        get('/datos_empresa').then(function(response) {
             let datos_empresa = JSON.parse(response);
             /**After we get the logo here we pass the logo to the logo
              * template and it prints it

@@ -23,10 +23,3 @@ To solve some jest testing problems I've been forced to install
 
 npm install babel-core@7.0.0-bridge.0 --save-dev
 
-
-TODO
-
-1. Hacer que te salga bonito cuando ejecutes el webpack 
-
-
-2. En la template de home intentar enseñar debajo del logo las promociones destacadas

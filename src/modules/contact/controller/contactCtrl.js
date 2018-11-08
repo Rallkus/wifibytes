@@ -1,5 +1,4 @@
 import {get} from '../../../utils/utils';
-import {Settings} from '../../../settings';
 import {template} from '../view/contactView';
 import {loadJavascriptForContactView} from '../view/contact';
 import {myMap} from '../utils/utils';
@@ -23,7 +22,7 @@ class ContactController {
     */
     loadJavascriptForContactView();
     /** Gettint the data from server and setting the map options */
-    get(Settings.baseURL+'/datos_empresa').then(function(response) {
+    get('/datos_empresa').then(function(response) {
       let datos_empresa = JSON.parse(response);
       /** @param datos_empresa is the information we got from the server 
        * @param mapOptions is the options for the map
