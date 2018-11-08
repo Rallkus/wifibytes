@@ -16,11 +16,11 @@ beforeAll(()=>{
 
 test('We check if controllers are called', () => {
     HomeController.render();
-    expect(HomeController).toBeCalled();
+    expect(HomeController.render).toHaveBeenCalledTimes(1);
     LogoController.render();
-    expect(LogoController).toBeCalled();
+    expect(LogoController.render).toHaveBeenCalledTimes(1);
     HeaderController.render();
-    expect(HeaderController).toBeCalled();
+    expect(HeaderController.render).toHaveBeenCalledTimes(1);
     FooterController.render();
-    expect(FooterController).toBeCalled(); 
+    expect(FooterController.render).toHaveBeenCalledTimes(1);
 });
