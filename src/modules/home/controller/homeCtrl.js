@@ -36,7 +36,9 @@ class HomeController {
       get(Settings.baseURL+'/tarifa').then(function(response) {
         let a = JSON.parse(response);
         let tarifas = "";
-        a.results.forEach(element => {
+        let filteredArray = a.results.filter(datos => datos.destacado);
+        //a=a.results(datos => datos.destacado);
+        filteredArray.forEach(element => {
           console.log(element);
           tarifas += tarifa(element);
         });
