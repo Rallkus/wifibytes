@@ -6,7 +6,7 @@ let template = function(datos_empresa){
     <a href="${datos_empresa.facebook}" class="fa fa-facebook"></a>
     <a href="${datos_empresa.twitter}" class="fa fa-twitter"></a>
     <a href="#avisolegal">Aviso legal</a>
-    <a href="#cookies">Política de cooies</a>
+    <a href="#cookies">Política de cookies</a>
      `;
     return html;
   }
