@@ -1,6 +1,6 @@
 import {get} from '../../../utils/utils';
 import {Settings} from '../../../settings';
-import {template} from '../view/contact.html';
+import {template} from '../view/contactView';
 import {loadJavascriptForContactView} from '../view/contact';
 import {myMap} from '../utils/utils';
 /**This is the contact controller */

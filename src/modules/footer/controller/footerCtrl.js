@@ -1,6 +1,6 @@
 import {get} from '../../../utils/utils';
 import {Settings} from '../../../settings';
-import {template} from '../view/footer.html';
+import {template} from '../view/footerView';
 /** This is the footer class */
 class FooterController {
 

@@ -1,7 +1,7 @@
 import {get} from '../../../utils/utils';
 import {Settings} from '../../../settings';
-import {template, textTemplate, carouselTemplate} from '../view/home.html';
-import {tarifa} from '../../../view/tarifa.html';
+import {template, textTemplate, carouselTemplate} from '../view/homeView';
+import {tarifa} from '../../../view/tarifaView';
 import {loadJavascriptForHomeView} from '../view/home';
 /** This is our home class */
 class HomeController {

@@ -1,4 +1,4 @@
-import {template} from '../view/header.html';
+import {template} from '../view/headerView';
 /** This is our header class */
 class HeaderController {
 
