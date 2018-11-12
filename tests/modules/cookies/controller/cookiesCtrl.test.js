@@ -1,4 +1,4 @@
-import legalWarningCtrl from '../../../../src/modules/legalWarning/controller/legalWarningCtrl';
+import cookiesCtrl from '../../../../src/modules/cookies/controller/cookiesCtrl';
 
 const text = [{key: "jumbotron_legal", content:"dddddddddddddddddddddddddddddd"}]
 const $ = require('jquery');
@@ -36,7 +36,7 @@ fakeDOMLoaded();
 
 
 test('legalWarningCtrl render called', () => {
-  legalWarningCtrl.render(text); 
+    cookiesCtrl.render(text); 
   console.log("$('#page').children.length=>"+$('#page').children.length);
   expect($('#page').children.length).toBeGreaterThan(1);    
 });
