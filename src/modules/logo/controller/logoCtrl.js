@@ -1,4 +1,3 @@
-import {get} from '../../../utils/utils';
 import {template} from '../view/logoView';
 /**This is our logo class where the logo is get from the server and showed in the html */
 class LogoController {

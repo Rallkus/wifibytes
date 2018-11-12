@@ -1,5 +1,4 @@
-import {get} from '../../../utils/utils';
-import {template, textTemplate, carouselTemplate} from '../view/homeView';
+import {textTemplate, carouselTemplate} from '../view/homeView';
 import {tarifa} from '../../../view/tarifaView';
 import {loadJavascriptForHomeView} from '../view/home';
 /** This is our home class */

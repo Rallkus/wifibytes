@@ -1,4 +1,3 @@
-import {get} from '../../../utils/utils';
 import {template} from '../view/footerView';
 /** This is the footer class */
 class FooterController {

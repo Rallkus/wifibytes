@@ -1,4 +1,3 @@
-import {get} from '../../../utils/utils';
 import {template} from '../view/contactView';
 import {loadJavascriptForContactView} from '../view/contact';
 import {myMap} from '../utils/utils';

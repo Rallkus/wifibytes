@@ -15,6 +15,7 @@ let loadJavascriptForHomeView = function(){
 
     // Thumbnail image controls
     function currentSlide(n) {
+        console.log(n);
     showSlides(slideIndex = n);
     }
     
@@ -64,7 +65,7 @@ let loadJavascriptForHomeView = function(){
     
     })
 
-    function carousel() {
+    /*function carousel() {
         let i;
         let x = document.getElementsByClassName("mySlides");
         try{
@@ -79,6 +80,6 @@ let loadJavascriptForHomeView = function(){
         } 
         
     }
-    carousel();
+    carousel();*/
 }
 export {loadJavascriptForHomeView};
