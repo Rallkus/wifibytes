@@ -1,9 +1,6 @@
 let loadJavascriptForHomeView = function(){
     /** declarations of variables */
     let slideIndex = 1;
-    let prev=document.getElementsByClassName("prev");
-    let next=document.getElementsByClassName("next");
-    let dot=document.getElementsByClassName("dot");
     
     /** All the carousel stuff */
     showSlides(slideIndex);
@@ -15,21 +12,9 @@ let loadJavascriptForHomeView = function(){
 
     // Thumbnail image controls
     function currentSlide(n) {
-        console.log(n);
     showSlides(slideIndex = n);
     }
     
-    prev.onclick = function() {
-        console.log("j");
-        plusSlides(-1);
-    }
-    next.onclick = function() {
-        console.log("j");
-        plusSlides(1);
-    }
-    dot.onclick = function(id) {
-        currentSlide(id);
-    }
 
     function showSlides(n) {
         try{
@@ -56,11 +41,11 @@ let loadJavascriptForHomeView = function(){
      */
     document.addEventListener('click',function(e){
         if(e.target && e.target.className== 'next'){
-            next.onclick();
+            plusSlides(1);
         }else if(e.target && e.target.className== 'prev'){
-            prev.onclick();
+            plusSlides(-1);
         }else if(e.target && e.target.className== 'dot'){
-            dot.onclick(e.target.id);
+            currentSlide(e.target.id);
         }
     
     })
