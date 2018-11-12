@@ -8,17 +8,8 @@ class LogoController {
     }
   
     /** render  */
-    static render() {
-        /** This is our call to server in order to get the logo and paint it in html */
-        get('/datos_empresa').then(function(response) {
-            let datos_empresa = JSON.parse(response);
-            /**After we get the logo here we pass the logo to the logo
-             * template and it prints it
-             */
-            document.getElementById("logo").innerHTML =template(datos_empresa.logo);
-          }).catch(function(error) {
-            console.log("Failed!", error);
-        })
+    static render(logo) {
+        document.getElementById("logo").innerHTML =template(logo);
        
     }
 }

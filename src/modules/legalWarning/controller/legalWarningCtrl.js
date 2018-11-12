@@ -1,4 +1,3 @@
-import {get} from '../../../utils/utils';
 /**This is the legal warning controller */
 class legalWarningController {
 

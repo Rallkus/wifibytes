@@ -7,11 +7,21 @@ import LogoController from './modules/logo/controller/logoCtrl';
 import HeaderController from './modules/header/controller/headerCtrl';
 import FooterController from './modules/footer/controller/footerCtrl';
 import {get} from './utils/utils';
+import {template} from './modules/home/view/homeView'
 /**Here we add our routes to our router */
 Router
 .add(/contact/, function() {
   console.log("Contact");
-  ContactController.render();
+  get('/datos_empresa').then(function(response) {
+    let datos_empresa = JSON.parse(response);
+    /** @param datos_empresa is the information we got from the server 
+     * @param mapOptions is the options for the map
+    */
+   ContactController.render(datos_empresa);
+  }).catch(function(error) {
+    console.log("Failed!", error);
+})
+  
 })
 .add(/avisolegal/, function() {
   console.log('Aviso legal');
@@ -46,14 +56,65 @@ Router
 })
 .listen()
 .add(function() {
-    console.log('default');
-    HomeController.render();
+  /** Here we apply the template so after the gets they have where to print */
+  document.getElementById("page").innerHTML = template();
+  console.log('default');
+  /**This is the call to get the home texts from the server */
+  get('/home').then(function(response) {
+    let home = JSON.parse(response);
+    HomeController.textos(home);
+  }).catch(function(error) {
+    console.log("Failed!", error);
+  })
+  /** This is the call to get the tarifas from the server */
+  get('/tarifa').then(function(response) {
+    let a = JSON.parse(response);
+    HomeController.tarifas(a);
+  }).catch(function(error) {
+    console.log("Failed!", error);
+  })
+ 
+  get('/datos_empresa').then(function(response) {
+    let datos_empresa = JSON.parse(response);     
+    /** We want to filter all the texts in order to find the one we need to print */
+    let data=datos_empresa.textos.filter(datos => datos.key.match(/jumbotron_slider/));
+    /** @param data is our array filtered */
+    HomeController.slider(data);
+  }).catch(function(error) {
+    console.log("Failed!", error);
+  }) 
 });
 window.onload = function() {
+    /** Here we apply the template so after the gets they have where to print */
+    document.getElementById("page").innerHTML = template();
+    console.log('default');
+    /**This is the call to get the home texts from the server */
+    get('/home').then(function(response) {
+      let home = JSON.parse(response);
+      HomeController.textos(home);
+    }).catch(function(error) {
+      console.log("Failed!", error);
+    })
+    /** This is the call to get the tarifas from the server */
+    get('/tarifa').then(function(response) {
+      let a = JSON.parse(response);
+      HomeController.tarifas(a);
+    }).catch(function(error) {
+      console.log("Failed!", error);
+    })
+   
+    get('/datos_empresa').then(function(response) {
+      let datos_empresa = JSON.parse(response);    
+      FooterController.render(datos_empresa); 
+      LogoController.render(datos_empresa.logo);
+      /** We want to filter all the texts in order to find the one we need to print */
+      let data=datos_empresa.textos.filter(datos => datos.key.match(/jumbotron_slider/));
+      /** @param data is our array filtered */
+      HomeController.slider(data);
+    }).catch(function(error) {
+      console.log("Failed!", error);
+    }) 
 HeaderController.render();
-LogoController.render();
-FooterController.render();
-HomeController.render();
 }
 
 

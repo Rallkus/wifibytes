@@ -11,6 +11,7 @@ window.XMLHttpRequest = jest.fn(() => mockXHR);
 
 describe('get function test to be resolved', function() {
     test('Should return resolve', function(done) {
+        console.log(window.XMLHttpRequest);
         const reqPromise = get();
         mockXHR.onload();
         reqPromise.then((response) => {
