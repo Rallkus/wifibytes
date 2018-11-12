@@ -1,4 +1,6 @@
-const legalWarning=require('../src/modules/legalWarning/controller/legalWarningCtrl');
+import legalWarningCtrl from '../../../../src/modules/legalWarning/controller/legalWarningCtrl';
+
+const text = [{key: "jumbotron_legal", content:"dddddddddddddddddddddddddddddd"}]
 const $ = require('jquery');
 beforeEach(()=> {
     // Set up our document body
@@ -32,12 +34,11 @@ fakeDOMLoaded();
   
 });
 
-test('Primer test select Person list html tag is filled first time', () => {
-    legalWarning.default.render();
-    //setTimeout(2000);
-    $('page').text('test');
-    console.log($('page').val());
-    expect($('#page')).toBeGreaterThan(1);  
+
+test('legalWarningCtrl render called', () => {
+  legalWarningCtrl.render(text); 
+  console.log("$('#page').children.length=>"+$('#page').children.length);
+  expect($('#page').children.length).toBeGreaterThan(1);    
 });
 
 

@@ -1,4 +1,4 @@
-import {get} from '../src/utils/utils';
+import {get} from '../../src/utils/utils';
 
 const mockXHR = {
     open: jest.fn(),
