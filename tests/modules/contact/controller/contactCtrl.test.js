@@ -1,9 +1,9 @@
 import contactCtrl from '../../../../src/modules/contact/controller/contactCtrl';
 
 const $ = require('jquery');
-//const oldgoogle = window.google.maps.LatLng;
+const oldgoogle = window.google;
+console.log(oldgoogle);
 
-window.google = jest.fn();
 const text = {name:"dasds", phone:"45421321864165", address:"dddddd", location_lat:"38.819665", location_long:"38.819665"};
 beforeEach(()=> {
     // Set up our document body
@@ -39,7 +39,6 @@ fakeDOMLoaded();
 
 describe('get function test to be resolved', function() {
     test('contactCtrl render called', () => {
-        console.log(window.google);
         contactCtrl.render(text); 
         console.log("$('#page').children.length=>"+$('#page').children.length);
         expect($('#page').children.length).toBeGreaterThan(1);    

@@ -15,8 +15,12 @@ beforeAll(()=>{
 })
 
 test('We check if controllers are called', () => {
-    HomeController.render();
-    expect(HomeController.render).toHaveBeenCalledTimes(1);
+    HomeController.textos("dsadsa");
+    expect(HomeController.textos).toHaveBeenCalledTimes(1);
+    HomeController.slider("dsadsa");
+    expect(HomeController.slider).toHaveBeenCalledTimes(1);
+    HomeController.tarifas("dsadsa");
+    expect(HomeController.tarifas).toHaveBeenCalledTimes(1);
     LogoController.render();
     expect(LogoController.render).toHaveBeenCalledTimes(1);
     HeaderController.render();
