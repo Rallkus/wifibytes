@@ -23,3 +23,17 @@ To solve some jest testing problems I've been forced to install
 
 npm install babel-core@7.0.0-bridge.0 --save-dev
 
+#How to start
+
+npm install
+
+npm start
+
+To use tests
+
+npm test
+
+#Architecture
+
+The app is divided in modules, each has inside his own controller and view.
+
