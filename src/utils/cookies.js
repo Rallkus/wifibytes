@@ -1,7 +1,8 @@
 function createCookie(name, value, days) {
-    var expires;
+    if(name !== ""){
+        let expires;
     if (days) {
-        var date = new Date();
+        let date = new Date();
         date.setTime(date.getTime()+(days*24*60*60*1000));
         expires = "; expires="+date.toGMTString();
     }
@@ -9,22 +10,15 @@ function createCookie(name, value, days) {
         expires = "";
     }
     document.cookie = name+"="+value+expires+"; path=/";
+    } 
 }
 
 // Read cookie
 function readCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0) === ' ') {
-            c = c.substring(1,c.length);
-        }
-        if (c.indexOf(nameEQ) === 0) {
-            return c.substring(nameEQ.length,c.length);
-        }
-    }
-    return null;
+    let nameEQ = name + "=";
+    let ca = document.cookie.split(';');
+    let filter = ca.filter(datos => datos.startsWith(nameEQ));
+    return filter[0] !== undefined? filter[0].substring(nameEQ.length) : null;
 }
 
 // Erase cookie
