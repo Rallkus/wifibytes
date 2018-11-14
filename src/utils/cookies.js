@@ -15,10 +15,9 @@ function createCookie(name, value, days) {
 
 // Read cookie
 function readCookie(name) {
-    let nameEQ = name + "=";
-    let ca = document.cookie.split(';');
-    let filter = ca.filter(datos => datos.startsWith(nameEQ));
-    return filter[0] !== undefined? filter[0].substring(nameEQ.length) : null;
+    let re = new RegExp('[; ]'+name+'=([^\\s;]*)');  
+    let sMatch = (' '+document.cookie).match(re);
+    return (name && sMatch)? unescape(sMatch[1]) : null;
 }
 
 // Erase cookie
