@@ -1,10 +1,7 @@
 import {tarifa, containerTarifa} from '../../../view/tarifaView';
+import Controller from '../../../utils/controller';
 /** This is our tarifas class */
-class TarifasController {
-
-    constructor() {
-        
-    }
+class TarifasController extends Controller{
   
     /** render  */
     static render(a){

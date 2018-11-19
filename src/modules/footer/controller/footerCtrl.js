@@ -1,10 +1,7 @@
 import {template} from '../view/footerView';
+import Controller from '../../../utils/controller';
 /** This is the footer class */
-class FooterController {
-
-    constructor() {
-        
-    }
+class FooterController extends Controller{
   
     /** render  */
     static render(datos_empresa) {

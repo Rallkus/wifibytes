@@ -1,9 +1,6 @@
+import Controller from '../../../utils/controller';
 /**This is the legal warning controller */
-class legalWarningController {
-
-    constructor() {
-        
-    }
+class legalWarningController extends Controller{
   
     /** render  */
     static render(text) {

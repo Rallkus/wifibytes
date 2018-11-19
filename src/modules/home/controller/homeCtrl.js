@@ -1,12 +1,9 @@
 import {textTemplate, carouselTemplate} from '../view/homeView';
 import {tarifa, containerTarifa} from '../../../view/tarifaView';
 import {loadJavascriptForHomeView} from '../view/home';
+import Controller from '../../../utils/controller';
 /** This is our home class */
-class HomeController {
-
-    constructor() {
-        
-    }
+class HomeController extends Controller{
   
     /** render  */
     static slider(data) {     

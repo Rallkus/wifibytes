@@ -1,10 +1,7 @@
 import {template} from '../view/headerView';
+import Controller from '../../../utils/controller';
 /** This is our header class */
-class HeaderController {
-
-    constructor() {
-        
-    }
+class HeaderController extends Controller{
   
     /** render  */
     static render() {

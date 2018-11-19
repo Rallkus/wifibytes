@@ -1,12 +1,9 @@
 import {template} from '../view/contactView';
 import {loadJavascriptForContactView} from '../view/contact';
 import {myMap} from '../utils/utils';
+import Controller from '../../../utils/controller';
 /**This is the contact controller */
-class ContactController {
-
-    constructor() {
-        
-    }
+class ContactController extends Controller{
   
     /** render  */
     static render(datos_empresa) {

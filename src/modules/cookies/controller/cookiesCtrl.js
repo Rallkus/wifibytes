@@ -1,11 +1,7 @@
 import {get} from '../../../utils/utils';
-
+import Controller from '../../../utils/controller';
 /**This is the cookies controller */
-class CookiesController {
-
-    constructor() {
-        
-    }
+class CookiesController extends Controller{
   
     /** render  */
     static render(text) {

@@ -1,10 +1,7 @@
 import {template} from '../view/logoView';
+import Controller from '../../../utils/controller';
 /**This is our logo class where the logo is get from the server and showed in the html */
-class LogoController {
-
-    constructor() {
-        
-    }
+class LogoController extends Controller{
   
     /** render  */
     static render(logo) {
