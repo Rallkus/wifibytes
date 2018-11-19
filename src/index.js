@@ -8,6 +8,7 @@ import HeaderController from './modules/header/controller/headerCtrl';
 import FooterController from './modules/footer/controller/footerCtrl';
 import {get} from './utils/utils';
 import {template} from './modules/home/view/homeView'
+import TarifasController from './modules/tarifas/controller/tarifasCtrl.js';
 /**Here we add our routes to our router */
 Router
 .add(/contact/, function() {
@@ -21,6 +22,15 @@ Router
   }).catch(function(error) {
     console.log("Failed!", error);
 })
+  
+})
+.add(/tarifas/, function() {
+  get('/tarifa').then(function(response) {
+    let a = JSON.parse(response);
+    TarifasController.render(a);
+  }).catch(function(error) {
+    console.log("Failed!", error);
+  })
   
 })
 .add(/avisolegal/, function() {
@@ -67,7 +77,7 @@ Router
     console.log("Failed!", error);
   })
   /** This is the call to get the tarifas from the server */
-  get('/tarifa').then(function(response) {
+  get('/tarifa/?destacado=true').then(function(response) {
     let a = JSON.parse(response);
     HomeController.tarifas(a);
   }).catch(function(error) {
@@ -96,7 +106,7 @@ window.onload = function() {
       console.log("Failed!", error);
     })
     /** This is the call to get the tarifas from the server */
-    get('/tarifa').then(function(response) {
+    get('/tarifa/?destacado=true').then(function(response) {
       let a = JSON.parse(response);
       HomeController.tarifas(a);
     }).catch(function(error) {

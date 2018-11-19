@@ -1,5 +1,5 @@
 import {textTemplate, carouselTemplate} from '../view/homeView';
-import {tarifa} from '../../../view/tarifaView';
+import {tarifa, containerTarifa} from '../../../view/tarifaView';
 import {loadJavascriptForHomeView} from '../view/home';
 /** This is our home class */
 class HomeController {
@@ -24,16 +24,13 @@ class HomeController {
     static tarifas(a){
       let tarifas = "";
       /** We filter our array in order to get the ones we want to show up in our home */
-      let filteredArray = a.results.filter(datos => datos.destacado);
+      let filteredArray = a.results;
       filteredArray.forEach(element => {
         /** each @param element is a tarifa */
         tarifas += tarifa(element);
       });
       /** Now we add the container for tarifas */
-      let result = `
-      <div class="flex-container-tarifas"> 
-        ${tarifas} 
-      </div>        `;
+      let result = containerTarifa(tarifas);
       document.getElementById("tarifas").innerHTML = result;
     }
 }

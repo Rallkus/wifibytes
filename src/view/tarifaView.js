@@ -51,5 +51,11 @@ let tarifa = function(datos_tarifa){
   console.log(datos_tarifa.subtarifas.length);    
     return html;
   }
+  let containerTarifa= function(tarifas){
+    return `
+    <div class="flex-container-tarifas"> 
+      ${tarifas} 
+    </div>        `;
+  }
   
-   export {tarifa};
+   export {tarifa, containerTarifa};
