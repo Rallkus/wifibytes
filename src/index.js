@@ -25,7 +25,7 @@ Router
   
 })
 .add(/tarifas/, function() {
-  get('/tarifa').then(function(response) {
+  get('/tarifa/?activo=true').then(function(response) {
     let a = JSON.parse(response);
     TarifasController.render(a);
   }).catch(function(error) {

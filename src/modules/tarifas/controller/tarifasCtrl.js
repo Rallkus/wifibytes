@@ -11,6 +11,7 @@ class TarifasController {
         let tarifas = "";
         /** We filter our array in order to get the ones we want to show up in our home */
         let filteredArray = a.results;
+        console.log(filteredArray);
         filteredArray.forEach(element => {
           /** each @param element is a tarifa */
           tarifas += tarifa(element);
