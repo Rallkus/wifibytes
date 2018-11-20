@@ -4,9 +4,9 @@ import Controller from '../../../utils/controller';
 class HeaderController extends Controller{
   
     /** render  */
-    static render() {
+    static render(lang) {
         /**We call our template and paint it */
-        document.getElementById("menuShow").innerHTML=template();               
+        document.getElementById("menuShow").innerHTML=template(lang);               
     }
 }
 export default HeaderController;

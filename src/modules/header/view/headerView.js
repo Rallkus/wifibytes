@@ -1,5 +1,5 @@
 /** This is the header's template*/
-let template = function(){
+let template = function(lang){
     let html=`
     <div class="meter">
         <nav role="navigation">
@@ -9,12 +9,14 @@ let template = function(){
             <span></span>
             <span></span>
             <ul id="menu">
-              <a href="#"><li>Home</li></a>
-              <a href="#contact"><li>Contact</li></a>
-              <a href="#tarifas"><li>Tarifas</li></a>
-              <a href="#catalogo"><li>Catalogo</li></a>
+              <a href="#"><li>${lang.Home}</li></a>
+              <a href="#contact"><li>${lang.Contact}</li></a>
+              <a href="#tarifas"><li>${lang.Tarifas}</li></a>
+              <a href="#catalogo"><li>${lang.Catalogo}</li></a>
             </ul>
           </div>
+          <button type="button" id="ES">${lang.Spanish}</button>
+          <button type="button" id="VAL">${lang.Valenciano}</button>
         </nav>
       </div>
      `;

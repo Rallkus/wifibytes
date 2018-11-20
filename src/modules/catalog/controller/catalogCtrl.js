@@ -5,13 +5,13 @@ import {loadJavascriptForCatalogView} from '../view/catalog';
 class CatalogController extends Controller{
   
     /** render  */
-    static categorias(categorias){
-        document.getElementById("categorias").innerHTML = template(categorias.results);
+    static categorias(categorias, lang){
+        document.getElementById("categorias").innerHTML = template(categorias.results, lang);
     }
 
-    static filtros(filtros){
+    static filtros(filtros, lang){
         console.log(filtros.marca[0]);
-        document.getElementById("filtros").innerHTML = filtrosTemplate(filtros);
+        document.getElementById("filtros").innerHTML = filtrosTemplate(filtros, lang);
     }
     static catalogo(productos){
         let products = [];

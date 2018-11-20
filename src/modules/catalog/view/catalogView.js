@@ -1,15 +1,17 @@
-/** The template for the catallog page*/
-let template = function(familias){
+/** The template for the catalog page*/
+let template = function(familias, lang){
     let html=`
-    <h3 class="text-center">Nuestros artículos</h3>
-    <h1 class="text-center">Cambiar categoría</h1>
+    <h3 class="text-center">${lang.NuestrosArticulos}</h3>
+    <h1 class="text-center">${lang.CambiarCategoria}</h1>
      `;
      familias.forEach(element => {
         html += `
         <a href="#catalogo/${element.codfamilia}"><img src="${element.icono}" alt="${element.nombre}">${element.titulo}</a>
         `;
       });
-      html+=`<br>`;
+      html+=`<br>
+      <h1 class="text-center">${lang.FiltrarProductos}</h1>
+      `;
     return html;
   }
   let catalogTemplate = function(familias){
@@ -20,9 +22,9 @@ let template = function(familias){
      `;
     return html;
   }
-  let filtrosTemplate = function(filtros){
+  let filtrosTemplate = function(filtros, lang){
     let html=`
-    <label for="marca">Marca</label>
+    <label for="marca">${lang.Marca}</label>
     <select id="marca">
         <option value="0">Todas</option>`;
         filtros.marca.forEach(element => {
@@ -32,7 +34,7 @@ let template = function(familias){
           });
         html+=`
     </select>
-    <label for="pulgadas">Pulgadas</label>
+    <label for="pulgadas">${lang.Pulgadas}</label>
     <select id="pulgadas">
         <option value="0">Todas</option>`;
         filtros.pantalla.forEach(element => {
@@ -42,7 +44,7 @@ let template = function(familias){
           });
         html+=`
     </select>
-    <label for="ram">Ram</label>
+    <label for="ram">${lang.Ram}</label>
     <select id="ram">
         <option value="0">Todas</option>`;
         filtros.ram.forEach(element => {
@@ -52,7 +54,7 @@ let template = function(familias){
           });
         html+=`
     </select>
-    <label for="procesador">Procesador</label>
+    <label for="procesador">${lang.Procesador}</label>
     <select id="procesador">
         <option value="0">Todas</option>`;
         filtros.procesador.forEach(element => {
@@ -62,7 +64,7 @@ let template = function(familias){
           });
         html+=`
     </select>
-    <label for="camara">Camara</label>
+    <label for="camara">${lang.Camara}</label>
     <select id="camara">
         <option value="0">Todas</option>`;
         filtros.camara.forEach(element => {
@@ -75,10 +77,6 @@ let template = function(familias){
      `;
     return html;
   }
-  /**This is the template for any "tarifa" we create, in case there is any "subtarifa" it shows
- * the most relevant details
- * @param datos_tarifa is the data sent by homeCtrl in order to paint the tarifa
-*/
 let catalogo = function(producto){
   let html=`
     <div class="flex-catalogo">

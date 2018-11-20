@@ -11,79 +11,71 @@ let loadJavascriptForCatalogView = function(a){
     let productos = a;
     let catalog = [];
     let items = "";
-    console.log(productos);
+    document.addEventListener('click',function(e){
+        if(e.target && e.target.id== 'marca'){
+            marca = event.target.value;
+            console.log(marca);
+            catalog = productos.filter(item => ( categoria == ""? true:item.codfamilia == categoria) && (marca == 0? true:item.marca == marca) && (pulgadas == 0? true:item.pantalla == pulgadas) && (ram == 0? true:item.ram == ram) && (procesador == 0? true:item.procesador == procesador) && (camara == 0? true:item.camara == camara));
+            console.log(catalog);
+            items = "";
+            catalog.forEach(element => {
+                /** each @param element is a product */
+                items += catalogo(element);
+            });
+            document.getElementById("productos").innerHTML = containerCatalogo(items);
+        }else if(e.target && e.target.id== 'pulgadas'){
+            pulgadas = event.target.value;
+            catalog = productos.filter(item => ( categoria == ""? true:item.codfamilia == categoria) && (marca == 0? true:item.marca == marca) && (pulgadas == 0? true:item.pantalla == pulgadas) && (ram == 0? true:item.ram == ram) && (procesador == 0? true:item.procesador == procesador) && (camara == 0? true:item.camara == camara));
+            console.log(pulgadas);
+            console.log(catalog);
+            items = "";
+            catalog.forEach(element => {
+                /** each @param element is a product */
+                items += catalogo(element);
+            });
+    document.getElementById("productos").innerHTML = containerCatalogo(items);
+        }else if(e.target && e.target.id== 'ram'){
+            ram = event.target.value;
+            catalog = productos.filter(item => ( categoria == ""? true:item.codfamilia == categoria) && (marca == 0? true:item.marca == marca) && (pulgadas == 0? true:item.pantalla == pulgadas) && (ram == 0? true:item.ram == ram) && (procesador == 0? true:item.procesador == procesador) && (camara == 0? true:item.camara == camara));
+            console.log(ram);
+            console.log(catalog);
+            items = "";
+            catalog.forEach(element => {
+                /** each @param element is a product */
+                items += catalogo(element);
+            });
+            document.getElementById("productos").innerHTML = containerCatalogo(items);
+        }else if(e.target && e.target.id== 'procesador'){
+            procesador = event.target.value;
+            catalog = productos.filter(item => ( categoria == ""? true:item.codfamilia == categoria) && (marca == 0? true:item.marca == marca) && (pulgadas == 0? true:item.pantalla == pulgadas) && (ram == 0? true:item.ram == ram) && (procesador == 0? true:item.procesador == procesador) && (camara == 0? true:item.camara == camara));
+            console.log(procesador);
+            console.log(catalog);
+            items = "";
+            catalog.forEach(element => {
+                /** each @param element is a product */
+                items += catalogo(element);
+            });
+            document.getElementById("productos").innerHTML = containerCatalogo(items);
+        }else if(e.target && e.target.id== 'camara'){
+            camara = event.target.value;
+            catalog = productos.filter(item => ( categoria == ""? true:item.codfamilia == categoria) && (marca == 0? true:item.marca == marca) && (pulgadas == 0? true:item.pantalla == pulgadas) && (ram == 0? true:item.ram == ram) && (procesador == 0? true:item.procesador == procesador) && (camara == 0? true:item.camara == camara));
+            console.log(camara);
+            console.log(catalog);
+            items = "";
+            catalog.forEach(element => {
+                /** each @param element is a product */
+                items += catalogo(element);
+            });
+            document.getElementById("productos").innerHTML = containerCatalogo(items);
+        }
+    
+    })
     catalog = productos.filter(item => ( categoria == ""? true:item.codfamilia == categoria) && (marca == 0? true:item.marca == marca) && (pulgadas == 0? true:item.pantalla == pulgadas) && (ram == 0? true:item.ram == ram) && (procesador == 0? true:item.procesador == procesador) && (camara == 0? true:item.camara == camara));
     catalog.forEach(element => {
         /** each @param element is a product */
         items += catalogo(element);
     });
     document.getElementById("productos").innerHTML = containerCatalogo(items);
-    let marcaSelect = document.getElementById('marca');
-    marcaSelect.onchange = (event) => {
-    marca = event.target.value;
-    console.log(marca);
-    catalog = productos.filter(item => ( categoria == ""? true:item.codfamilia == categoria) && (marca == 0? true:item.marca == marca) && (pulgadas == 0? true:item.pantalla == pulgadas) && (ram == 0? true:item.ram == ram) && (procesador == 0? true:item.procesador == procesador) && (camara == 0? true:item.camara == camara));
-    console.log(catalog);
-    items = "";
-    catalog.forEach(element => {
-        /** each @param element is a product */
-        items += catalogo(element);
-    });
-    document.getElementById("productos").innerHTML = containerCatalogo(items);
-
- }
-    let pulgadasSelect = document.getElementById('pulgadas');
-    pulgadasSelect.onchange = (event) => {
-    pulgadas = event.target.value;
-    catalog = productos.filter(item => ( categoria == ""? true:item.codfamilia == categoria) && (marca == 0? true:item.marca == marca) && (pulgadas == 0? true:item.pantalla == pulgadas) && (ram == 0? true:item.ram == ram) && (procesador == 0? true:item.procesador == procesador) && (camara == 0? true:item.camara == camara));
-    console.log(pulgadas);
-    console.log(catalog);
-    items = "";
-    catalog.forEach(element => {
-        /** each @param element is a product */
-        items += catalogo(element);
-    });
-    document.getElementById("productos").innerHTML = containerCatalogo(items);
- }
-    let ramSelect = document.getElementById('ram');
-    ramSelect.onchange = (event) => {
-    ram = event.target.value;
-    catalog = productos.filter(item => ( categoria == ""? true:item.codfamilia == categoria) && (marca == 0? true:item.marca == marca) && (pulgadas == 0? true:item.pantalla == pulgadas) && (ram == 0? true:item.ram == ram) && (procesador == 0? true:item.procesador == procesador) && (camara == 0? true:item.camara == camara));
-    console.log(ram);
-    console.log(catalog);
-    items = "";
-    catalog.forEach(element => {
-        /** each @param element is a product */
-        items += catalogo(element);
-    });
-    document.getElementById("productos").innerHTML = containerCatalogo(items);
- }
-    let procesadorSelect = document.getElementById('procesador');
-    procesadorSelect.onchange = (event) => {
-    procesador = event.target.value;
-    catalog = productos.filter(item => ( categoria == ""? true:item.codfamilia == categoria) && (marca == 0? true:item.marca == marca) && (pulgadas == 0? true:item.pantalla == pulgadas) && (ram == 0? true:item.ram == ram) && (procesador == 0? true:item.procesador == procesador) && (camara == 0? true:item.camara == camara));
-    console.log(procesador);
-    console.log(catalog);
-    items = "";
-    catalog.forEach(element => {
-        /** each @param element is a product */
-        items += catalogo(element);
-    });
-    document.getElementById("productos").innerHTML = containerCatalogo(items);
- }
-    let camaraSelect = document.getElementById('camara');
-    camaraSelect.onchange = (event) => {
-    camara = event.target.value;
-    catalog = productos.filter(item => ( categoria == ""? true:item.codfamilia == categoria) && (marca == 0? true:item.marca == marca) && (pulgadas == 0? true:item.pantalla == pulgadas) && (ram == 0? true:item.ram == ram) && (procesador == 0? true:item.procesador == procesador) && (camara == 0? true:item.camara == camara));
-    console.log(camara);
-    console.log(catalog);
-    items = "";
-    catalog.forEach(element => {
-        /** each @param element is a product */
-        items += catalogo(element);
-    });
-    document.getElementById("productos").innerHTML = containerCatalogo(items);
- }
 
 }
 export {loadJavascriptForCatalogView};

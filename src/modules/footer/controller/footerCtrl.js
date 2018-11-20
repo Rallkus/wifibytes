@@ -4,9 +4,9 @@ import Controller from '../../../utils/controller';
 class FooterController extends Controller{
   
     /** render  */
-    static render(datos_empresa) {
+    static render(datos_empresa, lang) {
         /** @param datos_empresa is the information we got from the call */
-        document.getElementById("footer").innerHTML = template(datos_empresa);
+        document.getElementById("footer").innerHTML = template(datos_empresa, lang);
     }
 }
 export default FooterController;

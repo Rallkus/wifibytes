@@ -8,6 +8,8 @@ import HeaderController from './modules/header/controller/headerCtrl';
 import FooterController from './modules/footer/controller/footerCtrl';
 import CatalogController from './modules/catalog/controller/catalogCtrl';
 import {get} from './utils/utils';
+import {createCookie} from './utils/cookies';
+import {lang} from './utils/languages/language';
 import {template} from './modules/home/view/homeView';
 import {catalogTemplate} from './modules/catalog/view/catalogView'
 import TarifasController from './modules/tarifas/controller/tarifasCtrl.js';
@@ -30,13 +32,13 @@ Router
   document.getElementById("page").innerHTML = catalogTemplate();
   get('/familia').then(function(response) {
     let b = JSON.parse(response);
-    CatalogController.categorias(b);
+    CatalogController.categorias(b, lang);
   }).catch(function(error) {
     console.log("Failed!", error);
   })
   get('/filtros').then(function(response) {
     let b = JSON.parse(response);
-    CatalogController.filtros(b);
+    CatalogController.filtros(b, lang);
   }).catch(function(error) {
     console.log("Failed!", error);
   })
@@ -140,7 +142,7 @@ window.onload = function() {
    
     get('/datos_empresa').then(function(response) {
       let datos_empresa = JSON.parse(response);    
-      FooterController.render(datos_empresa); 
+      FooterController.render(datos_empresa, lang); 
       LogoController.render(datos_empresa.logo);
       /** We want to filter all the texts in order to find the one we need to print */
       let data=datos_empresa.textos.filter(datos => datos.key.match(/jumbotron_slider/));
@@ -149,7 +151,18 @@ window.onload = function() {
     }).catch(function(error) {
       console.log("Failed!", error);
     }) 
-HeaderController.render();
+HeaderController.render(lang);
+document.addEventListener('click',function(e){
+  if(e.target && e.target.id== 'ES'){
+    console.log("hola");
+      createCookie("lang", "ES");
+      location.reload();
+  }else if(e.target && e.target.id== 'VAL'){
+    console.log(window.location.href);
+    createCookie("lang", "VAL");
+    location.reload();
+  }
+})
 }
 
 
