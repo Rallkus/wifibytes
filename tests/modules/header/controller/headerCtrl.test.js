@@ -1,4 +1,5 @@
 import headerCtrl from '../../../../src/modules/header/controller/headerCtrl';
+import {lang} from '../../../../src/utils/languages/language';
 const $ = require('jquery');
 beforeAll(()=>{
       // Set up our document body
@@ -30,6 +31,6 @@ beforeAll(()=>{
 })
 
 test('We check if HeaderController is called', () => {
-    headerCtrl.render();
+    headerCtrl.render(lang);
     expect($('#menuShow').children.length).toBeGreaterThan(1);    
 });

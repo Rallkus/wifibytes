@@ -1,4 +1,5 @@
 import footerCtrl from '../../../../src/modules/footer/controller/footerCtrl';
+import {lang} from '../../../../src/utils/languages/language';
 
 const rrss = {facebook:"paco", twitter:"perolo"};
 const $ = require('jquery');
@@ -32,6 +33,6 @@ beforeAll(()=>{
 })
 
 test('We check if HeaderController is called', () => {
-    footerCtrl.render(rrss);
+    footerCtrl.render(rrss, lang);
     expect($('#footer').children.length).toBeGreaterThan(1);    
 });
