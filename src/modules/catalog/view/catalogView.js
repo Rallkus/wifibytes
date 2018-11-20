@@ -1,4 +1,4 @@
-/** The template for the catalog page*/
+/**  */
 let template = function(familias, lang){
     let html=`
     <h3 class="text-center">${lang.NuestrosArticulos}</h3>
@@ -14,7 +14,8 @@ let template = function(familias, lang){
       `;
     return html;
   }
-  let catalogTemplate = function(familias){
+  /** The template for the catalog page*/
+  let catalogTemplate = function(){
     let html=`
     <div id="categorias"></div>
     <div id="filtros"></div>
