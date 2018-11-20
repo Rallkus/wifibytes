@@ -6,8 +6,10 @@ import CookiesController from './modules/cookies/controller/cookiesCtrl';
 import LogoController from './modules/logo/controller/logoCtrl';
 import HeaderController from './modules/header/controller/headerCtrl';
 import FooterController from './modules/footer/controller/footerCtrl';
+import CatalogController from './modules/catalog/controller/catalogCtrl';
 import {get} from './utils/utils';
-import {template} from './modules/home/view/homeView'
+import {template} from './modules/home/view/homeView';
+import {catalogTemplate} from './modules/catalog/view/catalogView'
 import TarifasController from './modules/tarifas/controller/tarifasCtrl.js';
 /**Here we add our routes to our router */
 Router
@@ -22,6 +24,28 @@ Router
   }).catch(function(error) {
     console.log("Failed!", error);
 })
+  
+})
+.add(/catalog/, function() {
+  document.getElementById("page").innerHTML = catalogTemplate();
+  get('/familia').then(function(response) {
+    let b = JSON.parse(response);
+    CatalogController.categorias(b);
+  }).catch(function(error) {
+    console.log("Failed!", error);
+  })
+  get('/filtros').then(function(response) {
+    let b = JSON.parse(response);
+    CatalogController.filtros(b);
+  }).catch(function(error) {
+    console.log("Failed!", error);
+  })
+  get('/articulo').then(function(response) {
+    let b = JSON.parse(response);
+    CatalogController.catalogo(b);
+  }).catch(function(error) {
+    console.log("Failed!", error);
+  })
   
 })
 .add(/tarifas/, function() {
@@ -95,6 +119,7 @@ Router
   }) 
 });
 window.onload = function() {
+  
     /** Here we apply the template so after the gets they have where to print */
     document.getElementById("page").innerHTML = template();
     console.log('default');

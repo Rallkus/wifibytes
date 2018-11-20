@@ -12,6 +12,7 @@ let template = function(){
               <a href="#"><li>Home</li></a>
               <a href="#contact"><li>Contact</li></a>
               <a href="#tarifas"><li>Tarifas</li></a>
+              <a href="#catalogo"><li>Catalogo</li></a>
             </ul>
           </div>
         </nav>
