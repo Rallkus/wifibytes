@@ -1,18 +1,15 @@
 import {Router} from './router.js'; //Knows what to do for every single URL 
-import HomeController from './modules/home/controller/homeCtrl';
-import ContactController from './modules/contact/controller/contactCtrl';
-import legalWarningController from './modules/legalWarning/controller/legalWarningCtrl';
-import CookiesController from './modules/cookies/controller/cookiesCtrl';
-import LogoController from './modules/logo/controller/logoCtrl';
-import HeaderController from './modules/header/controller/headerCtrl';
-import FooterController from './modules/footer/controller/footerCtrl';
-import CatalogController from './modules/catalog/controller/catalogCtrl';
+import Contact from './components/contact';
+import LegalWarning from "./components/legalWarning";
+import Cookies from "./components/cookies";
+import Footer from "./components/footer";
+import Tarifas from "./components/tarifas";
+import Logo from "./components/logo";
+import Header from "./components/header";
+import Catalog from "./components/catalog";
 import {get} from './utils/utils';
 import {createCookie} from './utils/cookies';
-import {lang} from './utils/languages/language';
-import {template} from './modules/home/view/homeView';
-import {catalogTemplate} from './modules/catalog/view/catalogView'
-import TarifasController from './modules/tarifas/controller/tarifasCtrl.js';
+import Home from './components/home.js';
 /**Here we add our routes to our router */
 Router
 .add(/contact/, function() {
@@ -22,38 +19,21 @@ Router
     /** @param datos_empresa is the information we got from the server 
      * @param mapOptions is the options for the map
     */
-   ContactController.render(datos_empresa);
+   new Contact(datos_empresa,"#page"); 
   }).catch(function(error) {
     console.log("Failed!", error);
 })
   
 })
 .add(/catalog/, function() {
-  document.getElementById("page").innerHTML = catalogTemplate();
-  get('/familia').then(function(response) {
-    let b = JSON.parse(response);
-    CatalogController.categorias(b, lang);
-  }).catch(function(error) {
-    console.log("Failed!", error);
-  })
-  get('/filtros').then(function(response) {
-    let b = JSON.parse(response);
-    CatalogController.filtros(b, lang);
-  }).catch(function(error) {
-    console.log("Failed!", error);
-  })
-  get('/articulo').then(function(response) {
-    let b = JSON.parse(response);
-    CatalogController.catalogo(b);
-  }).catch(function(error) {
-    console.log("Failed!", error);
-  })
+  Promise.all([get("/familia"), get("/filtros"),get("/articulo")]).then(function(results) {
+    new Catalog(results, "#page");
+  }) 
   
 })
 .add(/tarifas/, function() {
   get('/tarifa/?activo=true').then(function(response) {
-    let a = JSON.parse(response);
-    TarifasController.render(a);
+    new Tarifas(response, "#page");
   }).catch(function(error) {
     console.log("Failed!", error);
   })
@@ -63,13 +43,7 @@ Router
   console.log('Aviso legal');
   /** We get the data of our company in this call */
   get('/datos_empresa').then(function(response) {
-    let datos_empresa = JSON.parse(response);
-    /** We want to filter all the texts in order to find the one we need to print
-     * Also, there is no template here because all the text has his own html
-     * saved on server
-     */
-    let text=datos_empresa.textos.filter(datos => datos.key.match(/jumbotron_legal/));
-    legalWarningController.render(text);
+    new LegalWarning(response,"#page");
   }).catch(function(error) {
     console.log("Failed!", error);
 })
@@ -83,8 +57,7 @@ Router
      * Also, there is no template here because all the text has his own html
      * saved on server
      */
-    let text=datos_empresa.textos.filter(datos => datos.key.match(/jumbotron_cookies/));
-    CookiesController.render(text);
+    new Cookies(datos_empresa,"#page"); 
   }).catch(function(error) {
     console.log("Failed!", error);
 })
@@ -92,77 +65,36 @@ Router
 })
 .listen()
 .add(function() {
-  /** Here we apply the template so after the gets they have where to print */
-  document.getElementById("page").innerHTML = template();
-  console.log('default');
-  /**This is the call to get the home texts from the server */
-  get('/home').then(function(response) {
-    let home = JSON.parse(response);
-    HomeController.textos(home);
-  }).catch(function(error) {
-    console.log("Failed!", error);
-  })
-  /** This is the call to get the tarifas from the server */
-  get('/tarifa/?destacado=true').then(function(response) {
-    let a = JSON.parse(response);
-    HomeController.tarifas(a);
-  }).catch(function(error) {
-    console.log("Failed!", error);
-  })
- 
-  get('/datos_empresa').then(function(response) {
-    let datos_empresa = JSON.parse(response);     
-    /** We want to filter all the texts in order to find the one we need to print */
-    let data=datos_empresa.textos.filter(datos => datos.key.match(/jumbotron_slider/));
-    /** @param data is our array filtered */
-    HomeController.slider(data);
-  }).catch(function(error) {
-    console.log("Failed!", error);
+  Promise.all([get("/tarifa/?destacado=true"), get("/datos_empresa"),get("/home")]).then(function(results) {
+    // three promises resolved 
+    /*HomeController.textos(results[2]);
+    HomeController.tarifas(results[0]);
+    HomeController.slider(results[1]);*/
+    new Home(results, "#page");
+    //try {new Home([results[0],results[2]],"#main"); }catch(e){console.log(e);}
   }) 
 });
-window.onload = function() {
-  
-    /** Here we apply the template so after the gets they have where to print */
-    document.getElementById("page").innerHTML = template();
-    console.log('default');
-    /**This is the call to get the home texts from the server */
-    get('/home').then(function(response) {
-      let home = JSON.parse(response);
-      HomeController.textos(home);
-    }).catch(function(error) {
-      console.log("Failed!", error);
-    })
-    /** This is the call to get the tarifas from the server */
-    get('/tarifa/?destacado=true').then(function(response) {
-      let a = JSON.parse(response);
-      HomeController.tarifas(a);
-    }).catch(function(error) {
-      console.log("Failed!", error);
-    })
-   
-    get('/datos_empresa').then(function(response) {
-      let datos_empresa = JSON.parse(response);    
-      FooterController.render(datos_empresa, lang); 
-      LogoController.render(datos_empresa.logo);
-      /** We want to filter all the texts in order to find the one we need to print */
-      let data=datos_empresa.textos.filter(datos => datos.key.match(/jumbotron_slider/));
-      /** @param data is our array filtered */
-      HomeController.slider(data);
-    }).catch(function(error) {
-      console.log("Failed!", error);
-    }) 
-HeaderController.render(lang);
+document.addEventListener("DOMContentLoaded", function() {    
+  Promise.all([get("/tarifa/?destacado=true"), get("/datos_empresa"),get("/home")]).then(function(results) {
+  // three promises resolved 
+  new Home(results, "#page");
+  new Footer(results[1],"#footer"); 
+  new Logo(results[1],"#logo"); 
+  new Header(results[1],"#menuShow");
+  //try {new Home([results[0],results[2]],"#main"); }catch(e){console.log(e);}
+})  
 document.addEventListener('click',function(e){
-  if(e.target && e.target.id== 'ES'){
-    console.log("hola");
-      createCookie("lang", "ES");
-      location.reload();
-  }else if(e.target && e.target.id== 'VAL'){
-    console.log(window.location.href);
-    createCookie("lang", "VAL");
+if(e.target && e.target.id== 'ES'){
+  console.log("hola");
+    createCookie("lang", "ES");
     location.reload();
-  }
-})
+}else if(e.target && e.target.id== 'VAL'){
+  console.log(window.location.href);
+  createCookie("lang", "VAL");
+  location.reload();
 }
+})
+});
+
 
 
