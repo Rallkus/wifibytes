@@ -24,8 +24,8 @@ class Header extends Component{
                   <a href="#catalogo"><li>Catálogo</li></a>
                 </ul>
               </div>
-              <button type="button" id="ES">Español</button>
-              <button type="button" id="VAL">Valenciano</button>
+              <button type="button" class="menu__buttonMenu--black" id="ES">Español</button>
+              <button type="button" class="menu__buttonMenu--black" id="VAL">Valenciano</button>
             </nav>
           </div>
          `;

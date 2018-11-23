@@ -94,7 +94,7 @@ class Catalog extends Component{
     //TODO
     filteredArray.forEach(producto => {
     html+=`
-    <div class="flex-catalogo">
+    <div class="flex-container-catalogo__flex-catalogo">
       <p><img src="${producto.imagen}" style="width:250px;height:300px;"></p>
       <p>${producto.descripcion}</p>
       <p>${producto.descripcion_breve}</p>

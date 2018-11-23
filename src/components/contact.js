@@ -30,13 +30,17 @@ class Contact extends Component{
         <div class="flex-containerBoxes">
           <div>
             <form name="contact_form">
+            <label for="name">Nombre</label> <br>
             <input type="text" id="name" placeholder="Nombre y apellidos"><br>
             <p id="nombre" style="color:#FF0000";></p>
+            <label for="telefono">Número de teléfono</label><br>
             <input type="number" id="telefono" placeholder="Número de teléfono"><br>
             <p id="phone" style="color:#FF0000";></p>
+            <label for="email">Email</label><br>
             <input type="email" id="email" placeholder="Email"><br>
             <p id="wrongEmail" style="color:#FF0000";></p>
-            <input type="textarea" id="descripcion" cols="10" rows="10"><br>
+            <label for="descripcion">Descripcion</label><br>
+            <textarea placeholder="Descripción" id="descripcion" cols="15" rows="10" style="margin: 0px; height: 140px; width: 181px;"></textarea><br>
             <p id="textarea" style="color:#FF0000";></p>
             <input type="button" id="submit" value="Enviar">
             </form>

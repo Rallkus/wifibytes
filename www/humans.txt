@@ -1,0 +1,29 @@
+/* TEAM */
+
+	UI developer: Sergio Huertas Gisbert
+	Twitter: @sergio1huertas
+	From: Ontinyent, Comunidad Valenciana, España
+
+	Graphic designer: Sergio Huertas Gisbert
+	Twitter: @sergio1huertas
+	From:  Ontinyent, Comunidad Valenciana, España
+
+
+	Web designer: Sergio Huertas Gisbert
+	Twitter: @sergio1huertas
+	From: Ontinyent, Comunidad Valenciana, España
+
+/* THANKS */
+
+	Name: http://web.wifibytes.com/#/
+
+                            
+/* SITE */
+
+                            
+Last update: 2018/11/22
+
+                            
+Standards: HTML5, CSS3,..
+                            
+Software: JS, HTML5, CSS3

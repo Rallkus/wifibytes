@@ -26,10 +26,10 @@ class Home extends Component{
         let html=`
   <section id="tarifas" class="tarifas">`;
   html += `
-        <div class="flex-container-tarifas">`;
+        <div class="section__flex-container-tarifas">`;
         filteredArray.forEach(datos_tarifa => {
         html+=`
-    <div class="flex-tarifas">
+    <div class="flex-container-tarifas_flex-tarifas">
       <p><img src="${datos_tarifa.logo}">${datos_tarifa.nombretarifa}</p>
       <p>${datos_tarifa.pretitulo}</p>
       `;
@@ -121,7 +121,7 @@ class Home extends Component{
   });
   html += `</div>`;
   html+=`</div>`;
-  html+=`<div class="flex-containerBoxes" id="homeText">`;
+  html+=`<div class="page__flex-containerBoxes" id="homeText">`;
   html+=`
     <div>
       <div id="titleLeftBox"><h1>${texts.caja_izquierda_titulo}</h1></div>

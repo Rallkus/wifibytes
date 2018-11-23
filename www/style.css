@@ -1,5 +1,17 @@
 
+/* button*/
 
+/* body  */
+
+/* home*/
+
+/* tarifas*/
+
+/* catalogo*/
+
+/*carousel*/
+
+/* menu*/
  body
  {
    margin: 0;
@@ -8,27 +20,28 @@
 
  }
 
-
-.flex-container {
+.section__flex-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.flex-containerBoxes {
-  display: flex;
-  flex-direction: row;
-}
-
-.firstElementFlex {
+.flex-container__firstElementFlex {
   display:flex;
   height: 120px; 
 	position: relative;
 	padding: 20px;
 }
-
-.flex-container-tarifas {
+/* End body*/
+/* Start home */
+.page__flex-containerBoxes {
+  display: flex;
+  flex-direction: row;
+}
+/* End home*/
+/* Start tarifas*/
+.section__flex-container-tarifas {
   display: flex;
   background-color: gray;
   margin: 10px;
@@ -41,30 +54,35 @@
   flex-shrink: 1;
   }
 
-  .flex-container-tarifas > div.flex-tarifas {
+  .section__flex-container-tarifas > div.flex-container-tarifas_flex-tarifas {
     background-color: blueviolet;
     margin: 10px;
     padding: 20px;
     font-size: 30px;
   }
-  .flex-container-catalogo {
+
+  /* End tarifas*/
+
+  /* Start catalogo*/
+  .section__flex-container-catalogo {
     display: flex;
     margin: 10px;
     text-align: center;
     line-height: 75px;
     font-size: 30px;
     color: white;
-    border: 1px solid white;
+    border: 1px solid black;
     justify-content: space-around;
     flex-shrink: 1;
     }
   
-    .flex-container-catalogo > div.flex-catalogo {
+    .section__flex-container-catalogo > div.flex-container-catalogo__flex-catalogo {
       background-color: blue;
       margin: 10px;
       padding: 20px;
       font-size: 30px;
     }
+    /* End catalogo*/
 
   /* Carousel style starts*/
   * {box-sizing:border-box}
@@ -288,4 +306,10 @@
 	background: #2e2e5e;
 	padding: 20px;
 }
+.menu__buttonMenu--black:hover {       
+  border-color: #000;}
 /* Menu style ends*/
+
+
+
+  
